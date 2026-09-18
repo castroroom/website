@@ -507,7 +507,7 @@
     entries.forEach(entry => {
       if (entry.isIntersecting) entry.target.classList.add('visible');
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.15, rootMargin: '0px 0px -15% 0px' });
   sections.forEach(s => observer.observe(s));
 
   const gridObserver = new IntersectionObserver((entries) => {
@@ -519,7 +519,7 @@
         });
       }
     });
-  }, { threshold: 0.2 });
+  }, { threshold: 0.2, rootMargin: '0px 0px -15% 0px' });
   document.querySelectorAll('.photo-grid').forEach(g => gridObserver.observe(g));
 
   const navToggle = document.getElementById('nav-toggle');
