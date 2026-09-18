@@ -170,6 +170,32 @@
   }
   footer a { color: var(--tan); }
   footer p { margin-bottom: 0.4rem; }
+
+  /* ---- Photo grid entrance ---- */
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    max-width: 900px;
+    width: 100%;
+    margin: 2.5rem auto 0;
+  }
+  .photo-grid img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .photo-grid img.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  @media (max-width: 600px) {
+    .photo-grid { grid-template-columns: repeat(2, 1fr); }
+  }
 </style>
 </head>
 <body>
@@ -206,6 +232,12 @@
     <button type="submit" class="cta" id="submit-btn">Send Message</button>
     <p id="form-status" class="form-status"></p>
   </form>
+  <div class="photo-grid">
+    <img src="images/S1_00753-Edit.jpg" alt="">
+    <img src="images/0M9A8976-Edit.jpg" alt="">
+    <img src="images/S1_00504-Edit.jpg" alt="">
+  </div>
+
 </main>
 
 <script>
@@ -260,6 +292,20 @@
   <p>415.529.1261</p>
   <p style="margin-top:1rem;"><a href="https://instagram.com/castro.room" target="_blank">Instagram</a></p>
 </footer>
+
+<script>
+  const gridObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('img').forEach((img, i) => {
+          img.style.transitionDelay = (i * 0.1) + 's';
+          img.classList.add('visible');
+        });
+      }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.photo-grid').forEach(g => gridObserver.observe(g));
+</script>
 
 </body>
 </html>
