@@ -48,6 +48,56 @@
   nav a:hover { color: var(--tan); }
   nav a.active { color: var(--brown-3); font-weight: 600; }
 
+  .nav-toggle {
+    display: none;
+  }
+
+  @media (max-width: 640px) {
+    nav {
+      justify-content: flex-end;
+      padding: 1.1rem 1.25rem;
+    }
+    .nav-links {
+      display: none;
+    }
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      inset: 0;
+      background: var(--cream);
+      gap: 2rem;
+      font-size: 1.2rem;
+      z-index: 150;
+    }
+    .nav-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 26px;
+      height: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 200;
+      padding: 0;
+    }
+    .nav-toggle span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background: var(--brown-1);
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  }
+
   main {
     max-width: 640px;
     margin: 0 auto;
@@ -201,12 +251,17 @@
 <body>
 
 <nav>
-  <a href="index.html">home</a>
-  <a href="index.html#about">about</a>
-  <a href="index.html#schedule">schedule</a>
-  <a href="index.html#events">events</a>
-  <a href="teacher-training.html">teacher training</a>
-  <a href="index.html#purchase">purchase</a>
+  <div class="nav-links" id="nav-links">
+    <a href="index.html">home</a>
+    <a href="index.html#about">about</a>
+    <a href="index.html#schedule">schedule</a>
+    <a href="index.html#events">events</a>
+    <a href="teacher-training.html">teacher training</a>
+    <a href="index.html#purchase">purchase</a>
+  </div>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <main>
@@ -282,6 +337,21 @@
       submitBtn.disabled = false;
       submitBtn.textContent = 'Send Message';
     }
+  });
+</script>
+
+<script>
+  const navToggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    navToggle.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.classList.remove('open');
+    });
   });
 </script>
 
