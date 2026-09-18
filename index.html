@@ -36,7 +36,6 @@
     z-index: 100;
     display: flex;
     justify-content: center;
-    gap: 2.5rem;
     padding: 1.5rem 1rem;
     background: rgba(250, 249, 242, 0.9);
     backdrop-filter: blur(6px);
@@ -49,6 +48,11 @@
     transition: color 0.3s ease;
   }
   nav a:hover { color: var(--tan); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+  }
 
   .nav-toggle {
     display: none;
