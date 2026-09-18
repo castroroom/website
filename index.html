@@ -22,6 +22,7 @@
 
   body {
     font-family: "proxima-nova", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 300;
     background: var(--cream);
     color: var(--brown-1);
     line-height: 1.6;
@@ -116,10 +117,11 @@
     background-position: center;
     color: var(--cream);
   }
-  #home .eyebrow { color: var(--tan); }
+  #home .eyebrow { color: #FFFFFF; }
   #home .cta {
     border-color: var(--cream);
     color: var(--cream);
+    text-transform: uppercase;
   }
   #home .cta:hover {
     background: var(--cream);
@@ -143,13 +145,12 @@
     min-height: 0;
   }
   .about-block {
-    min-height: 100vh;
-    padding: 8rem 1.5rem 4rem;
+    padding: 1.25rem 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
   }
   .about-block p {
     max-width: 640px;
@@ -163,6 +164,11 @@
     color: #5e2500;
     margin-top: 1.5rem;
     text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    align-self: center;
   }
   .info-block {
     background: #FFFFFF;
@@ -218,12 +224,13 @@
 <section id="home">
   <div class="eyebrow">yoga | san francisco</div>
   <h1>The Castro Room</h1>
-  <p>Vinyasa, warm, and heated yoga in a beautiful Mission&ndash;Castro space.</p>
+  <p>expert teachers, in a world-renowned room.<br>classes, events, workshops, teacher trainings.</p>
   <a class="cta" href="#schedule">Come Practice</a>
 </section>
 
 <section id="about">
   <div class="about-block ethos-block">
+    <h2>ethos</h2>
     <p>Anytime we sell yoga with assurances of bliss or peace or healing, we undermine the true essence of the practice, which is to make room for things as they are. Bliss and peace and healing can sometimes arrive as natural byproducts of yoga, but they recede as objects of yearning&mdash;this distinction is at the heart of the practice.</p>
     <p>The practice is an open door. A refuge. A place to begin again.<br>
     The practice is a line of sight to a never ending target. Attention. Composure. Reverence. Truth.<br>
@@ -236,12 +243,13 @@
 
   <div class="about-block info-block">
     <h2>about</h2>
-    <p>The Castro Room is in the business of two things: teachers, and atmosphere. Our resources are devoted to supporting experts who practice what they teach, and to the stewardship of an outstanding physical space that feels.. The quality of our offerings stem from these two priorities.</p>
+    <p>The Castro Room is in the business of two things: teachers, and atmosphere. Our resources are devoted to supporting experts who practice what they teach, and to the stewardship of an outstanding physical space. The quality of our offerings stem from these two priorities.</p>
 
     <h2 style="margin-top:2.5rem;">history</h2>
     <p>For decades, there's been a yoga studio at the corner of 18th and Collingwood. It's been through different eras and owners and names, but the studio has always been a beacon, locally and globally. The room has seen thousands of classes, tens of thousands of people, hundreds of thousands of discoveries. We nod to the legendary history of a container that's held so much, and open the door for everything that comes next.</p>
 
     <div class="info-list">
+      <h2 style="margin-top:0;">info</h2>
       <p>The front door is locked ten minutes after the start of all classes and events.</p>
       <p>Class styles and temperatures vary by teacher.</p>
       <p>Mats and towels are available for rental.</p>
