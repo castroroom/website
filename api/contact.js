@@ -22,8 +22,8 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Castro Room Contact Form <onboarding@resend.dev>',
-        to: 'hello@castroroom.com',
+        from: 'Castro Room Contact Form <hello@castroroom.com>',
+        to: 'jason@castroroom.com',
         reply_to: email,
         subject: `Contact form: ${subject}`,
         text: `From: ${name} (${email})\n\n${message}`,
