@@ -136,6 +136,42 @@
   }
   #about .info-list p { margin-bottom: 0.5rem; }
 
+  /* ---- About section blocks ---- */
+  #about {
+    display: block;
+    padding: 0;
+    min-height: 0;
+  }
+  .about-block {
+    min-height: 100vh;
+    padding: 8rem 1.5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .about-block p {
+    max-width: 640px;
+    margin-bottom: 1rem;
+  }
+  .ethos-block {
+    background: #EAD5AA;
+    color: #5e2500;
+  }
+  .ethos-block .eyebrow {
+    color: #5e2500;
+    margin-top: 1.5rem;
+    text-decoration: none;
+  }
+  .info-block {
+    background: #FFFFFF;
+    color: #5e2500;
+  }
+  .info-block h2 {
+    color: #5e2500;
+  }
+
   /* ---- Placeholder embed blocks ---- */
   .embed-placeholder {
     width: 100%;
@@ -153,7 +189,7 @@
   }
 
   /* ---- Section tinting ---- */
-  #about, #events { background: var(--cream); }
+  #events { background: var(--cream); }
   #schedule, #purchase { background: #F3EEDF; }
   #teacher-training { background: var(--cream); }
 
@@ -187,20 +223,35 @@
 </section>
 
 <section id="about">
-  <div class="eyebrow">history</div>
-  <p>For decades, there's been a yoga studio at the corner of 18th and Collingwood. It's been through different eras and owners and names, but the studio has always been a beacon, locally and globally.</p>
+  <div class="about-block ethos-block">
+    <p>Anytime we sell yoga with assurances of bliss or peace or healing, we undermine the true essence of the practice, which is to make room for things as they are. Bliss and peace and healing can sometimes arrive as natural byproducts of yoga, but they recede as objects of yearning&mdash;this distinction is at the heart of the practice.</p>
+    <p>The practice is an open door. A refuge. A place to begin again.<br>
+    The practice is a line of sight to a never ending target. Attention. Composure. Reverence. Truth.<br>
+    The practice is a celebration of uncertainty and the beautiful hum of change.<br>
+    It's an expression of togetherness, of dedication, of care.</p>
+    <p>The wonderful thing is, after all, the practice sells itself. A studio that allows space for this to happen, with quality teachers and a quality environment, is a studio that thrives, and a community that thrives.</p>
+    <p>This is our goal: to provide a room for the practice to do what it does.</p>
+    <a class="eyebrow" href="#schedule">come practice</a>
+  </div>
 
-  <h2 style="margin-top:2.5rem;">About</h2>
-  <p>The Castro Room is in the business of two things: teachers, and atmosphere. Our resources are devoted to supporting experts who practice what they teach, and to the stewardship of a physical space that feels, simply, good.</p>
+  <div class="about-block info-block">
+    <h2>about</h2>
+    <p>The Castro Room is in the business of two things: teachers, and atmosphere. Our resources are devoted to supporting experts who practice what they teach, and to the stewardship of an outstanding physical space that feels.. The quality of our offerings stem from these two priorities.</p>
 
-  <h2 style="margin-top:2.5rem;">Ethos</h2>
-  <p>The practice is an open door. A refuge. A place to begin again. The wonderful thing is, after all, the practice sells itself.</p>
+    <h2 style="margin-top:2.5rem;">history</h2>
+    <p>For decades, there's been a yoga studio at the corner of 18th and Collingwood. It's been through different eras and owners and names, but the studio has always been a beacon, locally and globally. The room has seen thousands of classes, tens of thousands of people, hundreds of thousands of discoveries. We nod to the legendary history of a container that's held so much, and open the door for everything that comes next.</p>
 
-  <div class="info-list">
-    <p>The front door is locked ten minutes after the start of all classes and events.</p>
-    <p>Mats and towels are available for rental.</p>
-    <p>Please arrive early and stay for the entirety of class.</p>
-    <p>Shoes should not be worn in the practice space.</p>
+    <div class="info-list">
+      <p>The front door is locked ten minutes after the start of all classes and events.</p>
+      <p>Class styles and temperatures vary by teacher.</p>
+      <p>Mats and towels are available for rental.</p>
+      <p>The studio is accessible by public transit.</p>
+      <p>Street parking is available in the surrounding neighborhood.</p>
+      <p>Please arrive early and stay for the entirety of class.</p>
+      <p>Shoes should not be worn in the practice space.</p>
+      <p>Silence devices, all the way.</p>
+      <p>Please avoid strong scents.</p>
+    </div>
   </div>
 </section>
 
