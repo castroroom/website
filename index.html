@@ -110,6 +110,18 @@
 
   /* ---- Hero (home) ---- */
   #home {
+    display: block;
+    padding: 0;
+    min-height: 0;
+  }
+  .hero-block {
+    min-height: 100vh;
+    padding: 8rem 1.5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     background:
       linear-gradient(rgba(94,47,0,0.35), rgba(94,47,0,0.35)),
       url('https://images.squarespace-cdn.com/content/v1/6411de4ae962a71514717fd5/dab06c5a-d2c0-4605-a248-4af33698e7a3/NH9A1989-HDR-Edit.jpg');
@@ -117,23 +129,23 @@
     background-position: center;
     color: #EAD5AA;
   }
-  #home .eyebrow {
+  .hero-block .eyebrow {
     color: #EAD5AA;
     margin-bottom: 0.4rem;
   }
-  #home h1 {
+  .hero-block h1 {
     margin-bottom: 0.4rem;
   }
-  #home p {
+  .hero-block p {
     margin-bottom: 0.5rem;
   }
-  #home .cta {
+  .hero-block .cta {
     border-color: #EAD5AA;
     color: #EAD5AA;
     text-transform: uppercase;
     margin-top: 0.6rem;
   }
-  #home .cta:hover {
+  .hero-block .cta:hover {
     background: #EAD5AA;
     color: #5e2500;
   }
@@ -236,13 +248,13 @@
 </nav>
 
 <section id="home">
-  <div class="eyebrow">yoga | san francisco</div>
-  <h1>The Castro Room</h1>
-  <p>expert teachers, in a world-renowned room.<br>classes, events, workshops, teacher trainings.</p>
-  <a class="cta" href="#schedule">Come Practice</a>
-</section>
+  <div class="hero-block">
+    <div class="eyebrow">yoga | san francisco</div>
+    <h1>The Castro Room</h1>
+    <p>expert teachers, in a world-renowned room.<br>classes, events, workshops, teacher trainings.</p>
+    <a class="cta" href="#schedule">Come Practice</a>
+  </div>
 
-<section id="about">
   <div class="about-block ethos-block">
     <h2>ethos</h2>
     <p>Anytime we sell yoga with assurances of bliss or peace or healing, we undermine the true essence of the practice, which is to make room for things as they are. Bliss and peace and healing can sometimes arrive as natural byproducts of yoga, but they recede as objects of yearning&mdash;this distinction is at the heart of the practice.</p>
@@ -254,7 +266,19 @@
     <p>This is our goal: to provide a room for the practice to do what it does.</p>
     <a class="eyebrow" href="#schedule">come practice</a>
   </div>
+</section>
 
+<section id="schedule">
+  <div class="eyebrow">practice with us</div>
+  <h1>Schedule</h1>
+  <div style="width:100%; max-width:1120px; margin-top:2rem;">
+    <!-- Sweatpals widget begin -->
+    <script src="https://sweatpals.com/static/embed/community/events/script.js?communityUsername=castro_room&defaultView=list&viewsJson=%5B%22tile%22%2C%22list%22%2C%22calendar%22%5D&filtersJson=%5B%22date-picker%22%2C%22instructor%22%5D&showDescription=false&directToCheckout=true&enableAutoEmbed=true&primaryColorHex=5e2500&backgroundColorHex=FFFFFF&brandColorHex=EAD5AA&fontFamily=SN%20Skandia&cardStyle=modern&displayTimeMode=first&contentVisibilityJson=%7B%22tag%22%3Atrue%2C%22title%22%3Atrue%2C%22subtitle%22%3Atrue%2C%22howItWorks%22%3Atrue%2C%22startTime%22%3Atrue%2C%22duration%22%3Atrue%2C%22coverImage%22%3Afalse%2C%22address%22%3Atrue%2C%22price%22%3Afalse%2C%22priceWithMembership%22%3Afalse%2C%22tags%22%3Afalse%2C%22shareButton%22%3Atrue%2C%22rsvps%22%3Afalse%2C%22capacity%22%3Afalse%2C%22host%22%3Afalse%2C%22coHost%22%3Afalse%2C%22instructor%22%3Atrue%7D&bookingBehavior=in-widget-checkout&buttonText=Register&animationsEnabled=true&glassEffectEnabled=true&heightMode=auto&spacingsMode=medium&maxWidth=1120&cornerRadius=24&showWidgetTitle=false&isLightModeEnabled=true"></script>
+    <!-- Sweatpals widget end -->
+  </div>
+</section>
+
+<section id="about">
   <div class="about-block info-block">
     <h2>about</h2>
     <p>The Castro Room is in the business of two things: teachers, and atmosphere. Our resources are devoted to supporting experts who practice what they teach, and to the stewardship of an outstanding physical space. The quality of our offerings stem from these two priorities.</p>
@@ -274,16 +298,6 @@
       <p>Silence devices, all the way.</p>
       <p>Please avoid strong scents.</p>
     </div>
-  </div>
-</section>
-
-<section id="schedule">
-  <div class="eyebrow">practice with us</div>
-  <h1>Schedule</h1>
-  <div style="width:100%; max-width:1120px; margin-top:2rem;">
-    <!-- Sweatpals widget begin -->
-    <script src="https://sweatpals.com/static/embed/community/events/script.js?communityUsername=castro_room&defaultView=list&viewsJson=%5B%22tile%22%2C%22list%22%2C%22calendar%22%5D&filtersJson=%5B%22date-picker%22%2C%22instructor%22%5D&showDescription=false&directToCheckout=true&enableAutoEmbed=true&primaryColorHex=5e2500&backgroundColorHex=FFFFFF&brandColorHex=EAD5AA&fontFamily=SN%20Skandia&cardStyle=modern&displayTimeMode=first&contentVisibilityJson=%7B%22tag%22%3Atrue%2C%22title%22%3Atrue%2C%22subtitle%22%3Atrue%2C%22howItWorks%22%3Atrue%2C%22startTime%22%3Atrue%2C%22duration%22%3Atrue%2C%22coverImage%22%3Afalse%2C%22address%22%3Atrue%2C%22price%22%3Afalse%2C%22priceWithMembership%22%3Afalse%2C%22tags%22%3Afalse%2C%22shareButton%22%3Atrue%2C%22rsvps%22%3Afalse%2C%22capacity%22%3Afalse%2C%22host%22%3Afalse%2C%22coHost%22%3Afalse%2C%22instructor%22%3Atrue%7D&bookingBehavior=in-widget-checkout&buttonText=Register&animationsEnabled=true&glassEffectEnabled=true&heightMode=auto&spacingsMode=medium&maxWidth=1120&cornerRadius=24&showWidgetTitle=false&isLightModeEnabled=true"></script>
-    <!-- Sweatpals widget end -->
   </div>
 </section>
 
