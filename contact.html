@@ -70,11 +70,24 @@
       align-items: center;
       justify-content: center;
       position: fixed;
-      inset: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100dvh;
       background: var(--cream);
-      gap: 2rem;
-      font-size: 1.2rem;
+      gap: 1.75rem;
+      font-size: 1.3rem;
       z-index: 150;
+      padding: 4rem 2rem 3rem;
+      opacity: 0;
+      animation: navFadeIn 0.25s ease forwards;
+    }
+    @keyframes navFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    body.nav-open {
+      overflow: hidden;
     }
     .nav-toggle {
       display: flex;
@@ -350,11 +363,13 @@
   navToggle.addEventListener('click', () => {
     navLinks.classList.toggle('open');
     navToggle.classList.toggle('open');
+    document.body.classList.toggle('nav-open');
   });
   navLinks.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
       navLinks.classList.remove('open');
       navToggle.classList.remove('open');
+      document.body.classList.remove('nav-open');
     });
   });
 </script>
