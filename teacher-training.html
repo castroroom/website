@@ -336,6 +336,95 @@
   @media (max-width: 600px) {
     .photo-grid img { width: 200px; height: 260px; }
   }
+  /* ---- FAQ accordion ---- */
+  .faq {
+    margin-top: 2rem;
+  }
+  .faq h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .faq-item {
+    border-bottom: 1px solid rgba(94, 47, 0, 0.2);
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 1.25rem 0;
+    font-size: 1.05rem;
+    color: var(--brown-2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-item summary::after {
+    content: "+";
+    font-size: 1.4rem;
+    line-height: 1;
+    color: var(--brown-3);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+  .faq-item[open] summary::after {
+    transform: rotate(45deg);
+  }
+  .faq-item p {
+    padding-bottom: 1.5rem;
+    color: var(--brown-1);
+    font-size: 0.95rem;
+  }
+
+  /* ---- Testimonials ---- */
+  .testimonials-section {
+    position: relative;
+    background-image: url('images/testimonials-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 4rem 2rem;
+    border-radius: 16px;
+    margin: 4rem 0;
+    overflow: hidden;
+  }
+  .testimonials-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(50, 25, 0, 0.55);
+    z-index: 0;
+  }
+  .testimonials-inner {
+    position: relative;
+    z-index: 1;
+  }
+  .testimonials-inner h3 {
+    text-align: center;
+    color: var(--cream);
+    margin-bottom: 3rem;
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+  .testimonial-quote {
+    color: var(--cream);
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  .testimonial-quote p {
+    margin-bottom: 1rem;
+  }
+  @media (max-width: 900px) {
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
 </style>
 </head>
 <body>
@@ -445,6 +534,64 @@
       <a class="cta" href="https://clients.mindbodyonline.com/classic/ws?studioid=5739873&stype=43&prodid=100174" target="_blank" rel="noopener">Register Now</a>
       <a class="cta secondary" href="contact.html">Ask a Question</a>
     </div>
+  </section>
+
+  <section class="testimonials-section">
+    <div class="testimonials-inner">
+      <h3>testimonials</h3>
+      <div class="testimonials-grid">
+        <div class="testimonial-quote">
+          <p>"This program is absolutely life changing.</p>
+          <p>You don't realize the impact that the monthly doses of philosophy, self-reflection and mind-body exploration have until they start to shape life decisions large and small in ways you could never have expected.</p>
+          <p>This program is the biggest gift you can give to yourself and to those around you.</p>
+          <p>I cannot recommend enough!"</p>
+        </div>
+        <div class="testimonial-quote">
+          <p>"From the first meeting I felt supported, encouraged, and alit with the enthusiasm for this practice.</p>
+          <p>There was no pressure to be a certain type of yogi. The differences between us were celebrated.</p>
+          <p>Arriving at the studio each month for training was like opening a gift. I didn't know what was coming but I knew I would want to keep it."</p>
+        </div>
+        <div class="testimonial-quote">
+          <p>"The 200-hour teacher training at the Castro Room is a truly transformative experience.</p>
+          <p>It has changed everything about my practice—physically, spiritually, and emotionally.</p>
+          <p>It's for everyone at every level, not just those who want to learn how to do handstands."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <h3>common questions</h3>
+
+    <details class="faq-item">
+      <summary>Is it okay if I miss a weekend?</summary>
+      <p>Yes. We record all lectures and discussions, so you can listen back if you miss anything, and it's easy to get notes from classmates as well. One of the reasons we use the extended format is that everyone has a life to navigate, and this training makes it especially easy to go deep while remaining flexible. Makeup work depends on what you miss, but the work is generally light and geared to help you understand the material covered.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Does the training come with any free classes?</summary>
+      <p>All teacher training sessions and classes are included in tuition, and all enrolled students get a free 10-pack of classes to use as they wish.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Is there homework between each month's session?</summary>
+      <p>In addition to intermittent reading for the book groups, there are periodic exercises that take around twenty minutes, designed to help students review and retain material before moving on to the next month.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>How are the weekends structured?</summary>
+      <p>Each day is different, but we're very deliberate to mix physical practice, seated lectures, interactive discussions, and all manners restorative and meditative practice, so the day has a seamless dynamic and no one thing is over emphasized.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>What is the capacity?</summary>
+      <p>We cap the training at 36 people, which makes for a spirited but intimate experience.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Is the training Yoga Alliance certified?</summary>
+      <p>Yes. All graduates qualify for a 200RYT designation.</p>
+    </details>
   </section>
 
 </main>
