@@ -428,10 +428,10 @@
   }
   .tt-hero-bg {
     position: absolute;
-    top: -15%;
+    top: -50%;
     left: 0;
     width: 100%;
-    height: 130%;
+    height: 200%;
     background-image: url('images/S1_00758-Edit.jpg');
     background-size: cover;
     background-position: center;
@@ -745,7 +745,7 @@
   const heroEl = document.querySelector('.tt-hero');
   function updateParallax() {
     const rect = heroEl.getBoundingClientRect();
-    heroBg.style.transform = `translateY(${rect.top * 0.3}px)`;
+    heroBg.style.transform = `translateY(${-rect.top * 0.6}px)`;
   }
   window.addEventListener('scroll', updateParallax, { passive: true });
   updateParallax();
