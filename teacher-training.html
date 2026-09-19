@@ -237,7 +237,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(50, 25, 0, 0.55);
+    background: rgba(50, 25, 0, 0.25);
     z-index: 0;
   }
   .price-block > * {
@@ -357,8 +357,8 @@
     background-size: cover;
     background-position: center;
     padding: 4rem 2rem;
-    border-radius: 16px;
-    margin: 4rem 0;
+    border-radius: 0;
+    margin: 4rem calc(50% - 50vw);
     overflow: hidden;
   }
   .testimonials-section::before {
@@ -445,9 +445,9 @@
   /* ---- Pillars over image ---- */
   .pillars-section {
     position: relative;
-    border-radius: 16px;
+    border-radius: 0;
     padding: 4rem 1.5rem;
-    margin: 4rem 0;
+    margin: 4rem calc(50% - 50vw);
     background-image: url('images/S1_00504-Edit.jpg');
     background-size: cover;
     background-position: center;
@@ -483,6 +483,10 @@
     margin: 2rem 0;
     text-align: center;
   }
+  .tt-hero, .tt-hero * , .price-block, .price-block *, .testimonials-section, .testimonials-section * {
+    color: #EAD5AA;
+  }
+
   .offwhite-block strong {
     display: block;
     margin-bottom: 0.5rem;
@@ -512,16 +516,19 @@
   <div class="tt-hero">
     <h1>200-Hour Teacher Training</h1>
     <h2 class="led-by">Led by Jason Bowman</h2>
-    <p class="with-names">With Estee Fletter, Lauren Cohen, and Haley Havelock<br>Plus special guests&hellip;</p>
+    <p class="with-names" style="margin-bottom: 2rem;">With Estee Fletter, Lauren Cohen, and Haley Havelock<br>Plus special guests&hellip;</p>
     <div class="cta-row">
       <a class="cta" href="https://clients.mindbodyonline.com/classic/ws?studioid=5739873&stype=43&prodid=100174" target="_blank" rel="noopener">Register Now</a>
       <a class="cta" href="contact.html">Ask a Question</a>
     </div>
   </div>
 
-  <section>
+  <div class="offwhite-block">
     <p>The yoga practice thrives as a ritual part of life, a touchstone made of routine reminders of what matters most.<br>
     We've designed a teacher training that supports the consistency of practice, while uncovering the many details that make it so rich.</p>
+  </div>
+
+  <section>
     <div class="photo-grid">
       <img src="images/S1_00800-Edit.jpg" alt="">
       <img src="images/S1_00504-Edit.jpg" alt="">
@@ -546,6 +553,7 @@
 
   <div class="pillars-section">
     <div class="pillars-box">
+      <h3 style="color: var(--brown-2);">Our training is built on three core pillars:</h3>
       <p><strong>Personal Practice</strong>The development of a three-dimensional understanding of the many facets of yoga, as well as the effort to integrate its concepts into personal behaviors and relationships.</p>
       <p><strong>Seeing Others</strong>Witnessing, holding space, identifying energetics and aesthetics, and honing the stewardship of an educator.</p>
       <p><strong>Communication</strong>How we talk about the things we know and love, connecting with other people through shared fascination and honesty, without being didactic or a caricature.</p>
@@ -564,30 +572,6 @@
     <div class="cta-row" style="margin-bottom:0;">
       <a class="cta" href="https://clients.mindbodyonline.com/classic/ws?studioid=5739873&stype=43&prodid=100174" target="_blank" rel="noopener">Register Now</a>
       <a class="cta" href="contact.html">Ask a Question</a>
-    </div>
-  </section>
-
-  <section class="testimonials-section">
-    <div class="testimonials-inner">
-      <h3>testimonials</h3>
-      <div class="testimonials-grid">
-        <div class="testimonial-quote">
-          <p>"This program is absolutely life changing.</p>
-          <p>You don't realize the impact that the monthly doses of philosophy, self-reflection and mind-body exploration have until they start to shape life decisions large and small in ways you could never have expected.</p>
-          <p>This program is the biggest gift you can give to yourself and to those around you.</p>
-          <p>I cannot recommend enough!"</p>
-        </div>
-        <div class="testimonial-quote">
-          <p>"From the first meeting I felt supported, encouraged, and alit with the enthusiasm for this practice.</p>
-          <p>There was no pressure to be a certain type of yogi. The differences between us were celebrated.</p>
-          <p>Arriving at the studio each month for training was like opening a gift. I didn't know what was coming but I knew I would want to keep it."</p>
-        </div>
-        <div class="testimonial-quote">
-          <p>"The 200-hour teacher training at the Castro Room is a truly transformative experience.</p>
-          <p>It has changed everything about my practice—physically, spiritually, and emotionally.</p>
-          <p>It's for everyone at every level, not just those who want to learn how to do handstands."</p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -623,6 +607,30 @@
       <summary>Is the training Yoga Alliance certified?</summary>
       <p>Yes. All graduates qualify for a 200RYT designation.</p>
     </details>
+  </section>
+
+  <section class="testimonials-section">
+    <div class="testimonials-inner">
+      <h3>testimonials</h3>
+      <div class="testimonials-grid">
+        <div class="testimonial-quote">
+          <p>"This program is absolutely life changing.</p>
+          <p>You don't realize the impact that the monthly doses of philosophy, self-reflection and mind-body exploration have until they start to shape life decisions large and small in ways you could never have expected.</p>
+          <p>This program is the biggest gift you can give to yourself and to those around you.</p>
+          <p>I cannot recommend enough!"</p>
+        </div>
+        <div class="testimonial-quote">
+          <p>"From the first meeting I felt supported, encouraged, and alit with the enthusiasm for this practice.</p>
+          <p>There was no pressure to be a certain type of yogi. The differences between us were celebrated.</p>
+          <p>Arriving at the studio each month for training was like opening a gift. I didn't know what was coming but I knew I would want to keep it."</p>
+        </div>
+        <div class="testimonial-quote">
+          <p>"The 200-hour teacher training at the Castro Room is a truly transformative experience.</p>
+          <p>It has changed everything about my practice—physically, spiritually, and emotionally.</p>
+          <p>It's for everyone at every level, not just those who want to learn how to do handstands."</p>
+        </div>
+      </div>
+    </div>
   </section>
 
 </main>
