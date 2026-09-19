@@ -187,6 +187,14 @@
     background: #EAD5AA;
     color: #5e2500;
   }
+  .cta-dark {
+    border-color: #5e2500;
+    color: #5e2500;
+  }
+  .cta-dark:hover {
+    background: #5e2500;
+    color: #EAD5AA;
+  }
 
   section {
     margin-bottom: 4rem;
@@ -223,7 +231,7 @@
 
   .price-block {
     text-align: center;
-    color: var(--cream);
+    color: #EAD5AA;
     border-radius: 16px;
     padding: 4rem 2rem;
     margin: 2rem 0;
@@ -246,13 +254,13 @@
   }
   .price-block .price {
     font-size: clamp(2rem, 5vw, 2.8rem);
-    color: var(--cream);
+    color: #EAD5AA;
     margin-bottom: 0.5rem;
   }
   .price-block .plan {
     font-size: 0.9rem;
     margin-bottom: 0.25rem;
-    color: var(--cream);
+    color: #EAD5AA;
   }
   .price-block .plan a {
     color: var(--tan);
@@ -260,7 +268,7 @@
   }
   .price-block .plan-detail {
     font-size: 0.8rem;
-    color: var(--cream);
+    color: #EAD5AA;
     margin-bottom: 1.5rem;
   }
   .price-block .plan-detail a {
@@ -273,7 +281,7 @@
     text-align: center;
     font-size: 0.85rem;
     background: var(--brown-1);
-    color: var(--cream);
+    color: #EAD5AA;
   }
   footer a { color: var(--tan); }
   footer p { margin-bottom: 0.4rem; }
@@ -284,10 +292,8 @@
     gap: 1rem;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    max-width: 900px;
-    width: 100%;
-    margin: 2.5rem auto 1.5rem;
-    padding-bottom: 1rem;
+    margin: 2.5rem calc(50% - 50vw) 1.5rem;
+    padding: 0 1.5rem 1rem;
   }
   .photo-grid img {
     flex: 0 0 auto;
@@ -352,29 +358,14 @@
 
   /* ---- Testimonials ---- */
   .testimonials-section {
-    position: relative;
-    background-image: url('images/S1_00577-Edit.jpg');
-    background-size: cover;
-    background-position: center;
+    background: #FFFFFF;
     padding: 4rem 2rem;
-    border-radius: 0;
-    margin: 4rem calc(50% - 50vw);
-    overflow: hidden;
-  }
-  .testimonials-section::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(50, 25, 0, 0.55);
-    z-index: 0;
-  }
-  .testimonials-inner {
-    position: relative;
-    z-index: 1;
+    border-radius: 16px;
+    margin: 4rem 0;
   }
   .testimonials-inner h3 {
     text-align: center;
-    color: var(--cream);
+    color: var(--brown-2);
     margin-bottom: 3rem;
   }
   .testimonials-grid {
@@ -383,10 +374,21 @@
     gap: 2.5rem;
   }
   .testimonial-quote {
-    color: var(--cream);
-    font-style: italic;
+    position: relative;
+    color: var(--brown-1);
     font-size: 0.95rem;
     line-height: 1.7;
+    padding-top: 1.5rem;
+  }
+  .testimonial-quote::before {
+    content: "\201C";
+    position: absolute;
+    top: -1rem;
+    left: 0;
+    font-size: 3.5rem;
+    font-family: Georgia, serif;
+    color: var(--tan);
+    line-height: 1;
   }
   .testimonial-quote p {
     margin-bottom: 1rem;
@@ -412,7 +414,7 @@
     background-image: url('images/S1_00758-Edit.jpg');
     background-size: cover;
     background-position: center;
-    color: var(--cream);
+    color: #EAD5AA;
   }
   .tt-hero::before {
     content: "";
@@ -426,14 +428,14 @@
     z-index: 1;
   }
   .tt-hero h1 {
-    color: var(--cream);
+    color: #EAD5AA;
     font-size: clamp(1.8rem, 4vw, 2.6rem);
   }
   .tt-hero h2.led-by {
     color: var(--tan);
   }
   .tt-hero .with-names {
-    color: var(--cream);
+    color: #EAD5AA;
   }
   .tt-hero .special-guests {
     color: var(--tan);
@@ -483,7 +485,7 @@
     margin: 2rem 0;
     text-align: center;
   }
-  .tt-hero, .tt-hero * , .price-block, .price-block *, .testimonials-section, .testimonials-section * {
+  .tt-hero, .tt-hero * , .price-block, .price-block * {
     color: #EAD5AA;
   }
 
@@ -492,6 +494,42 @@
     margin-bottom: 0.5rem;
     font-weight: 600;
     color: var(--brown-2);
+  }
+
+  .schedule-heading {
+    font-weight: 400;
+    text-align: center;
+    color: var(--brown-2);
+    margin: 2rem 0 2rem;
+    font-size: 1.05rem;
+  }
+  .schedule-times {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+  .schedule-times strong {
+    display: inline;
+    font-weight: 600;
+  }
+  .schedule-dates {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 1rem;
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--brown-2);
+  }
+  .schedule-dates .month {
+    padding: 0.5rem 0;
+  }
+  @media (max-width: 600px) {
+    .schedule-times, .schedule-dates {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
 </head>
@@ -524,8 +562,45 @@
   </div>
 
   <div class="offwhite-block">
-    <p>The yoga practice thrives as a ritual part of life, a touchstone made of routine reminders of what matters most.<br>
-    We've designed a teacher training that supports the consistency of practice, while uncovering the many details that make it so rich.</p>
+    <p>The yoga practice thrives as a ritual part of life, a touchstone made of routine reminders of what matters most.</p>
+    <p>We've designed a teacher training that supports the consistency of practice, while uncovering the many details that make it so rich.</p>
+
+    <p class="schedule-heading">One weekend immersion per month, for ten months, interspersed with book groups to discuss some of the best texts on the practice.</p>
+
+    <div class="schedule-times">
+      <div>
+        <p><strong>Fridays</strong>: 4:30 - 8:30p</p>
+        <p><strong>Saturdays</strong>: 11:00a - 7:30p</p>
+        <p><strong>Sundays</strong>: 10:45a - 4:15p</p>
+      </div>
+      <div>
+        <p>Plus <strong>Thursday</strong> Book Groups</p>
+        <p>on Zoom: 6:00 - 8:00p</p>
+      </div>
+    </div>
+
+    <div class="schedule-dates">
+      <div class="month">SEP 11-13th</div>
+      <div class="month">SEP 24th</div>
+      <div class="month">OCT 9-11th</div>
+      <div class="month">OCT 22nd</div>
+      <div class="month">NOV 6-8th</div>
+      <div class="month">NOV 19th</div>
+      <div class="month">DEC 4-6th</div>
+      <div class="month">DEC 17th</div>
+      <div class="month">JAN 8-10th</div>
+      <div class="month">JAN 21st</div>
+      <div class="month">FEB 5-7th</div>
+      <div class="month">FEB 18th</div>
+      <div class="month">MAR 5-7th</div>
+      <div class="month">MAR 18th</div>
+      <div class="month">APR 2-4th</div>
+      <div class="month">APR 15th</div>
+      <div class="month">APR 30 - MAY 2nd</div>
+      <div class="month">MAY 13th</div>
+      <div class="month">JUN 4-6th</div>
+      <div class="month"></div>
+    </div>
   </div>
 
   <section>
@@ -537,6 +612,14 @@
       <img src="images/S1_00758-Edit.jpg" alt="">
       <img src="images/S1_00729-Edit.jpg" alt="">
     </div>
+    <div class="photo-grid">
+      <img src="images/S1_00753-Edit.jpg" alt="">
+      <img src="images/S1_00672.jpg" alt="">
+      <img src="images/S1_00797-Edit.jpg" alt="">
+      <img src="images/0M9A8919-Edit-2.jpg" alt="">
+      <img src="images/0M9A2757-Edit.jpg" alt="">
+      <img src="images/NH9A3487-Edit.jpg" alt="">
+    </div>
   </section>
 
   <section class="highlight-block">
@@ -547,8 +630,8 @@
   </section>
 
   <div class="cta-row">
-    <a class="cta" href="https://clients.mindbodyonline.com/classic/ws?studioid=5739873&stype=43&prodid=100174" target="_blank" rel="noopener">Register Now</a>
-    <a class="cta" href="contact.html">Ask a Question</a>
+    <a class="cta cta-dark" href="https://clients.mindbodyonline.com/classic/ws?studioid=5739873&stype=43&prodid=100174" target="_blank" rel="noopener">Register Now</a>
+    <a class="cta cta-dark" href="contact.html">Ask a Question</a>
   </div>
 
   <div class="pillars-section">
