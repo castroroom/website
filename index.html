@@ -128,8 +128,8 @@
     text-align: center;
     padding: 8rem 1.5rem 4rem;
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
   }
   section.visible {
     opacity: 1;
@@ -142,8 +142,8 @@
     letter-spacing: 0.02em;
     margin-bottom: 1rem;
     opacity: 0;
-    transform: translateY(15px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(8px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
     transition-delay: 0.1s;
   }
   section h2 {
@@ -152,8 +152,8 @@
     margin-bottom: 1.5rem;
     color: var(--brown-2);
     opacity: 0;
-    transform: translateY(15px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(8px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
     transition-delay: 0.15s;
   }
   #schedule h1, #events h1, #teacher-training h1, #purchase h1 {
@@ -164,8 +164,8 @@
     font-size: 1.05rem;
     margin-bottom: 1rem;
     opacity: 0;
-    transform: translateY(15px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(8px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
     transition-delay: 0.2s;
   }
   section .eyebrow {
@@ -174,8 +174,8 @@
     color: var(--brown-3);
     margin-bottom: 0.4rem;
     opacity: 0;
-    transform: translateY(15px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(8px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
   }
   section.visible h1,
   section.visible h2,
@@ -196,10 +196,10 @@
     text-decoration: none;
     font-size: 0.85rem;
     letter-spacing: 0.08em;
-    transition: background 0.3s ease, color 0.3s ease, opacity 0.6s ease, transform 0.6s ease;
+    transition: background 0.3s ease, color 0.3s ease, opacity 0.45s ease, transform 0.45s ease;
     transition-delay: 0s, 0s, 0.3s, 0.3s;
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(8px);
   }
   .cta:hover {
     background: #EAD5AA;
@@ -373,8 +373,8 @@
     height: auto;
     border-radius: 8px;
     opacity: 0;
-    transform: translateY(20px) scale(0.95);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(8px) scale(0.98);
+    transition: opacity 0.45s ease, transform 0.45s ease;
   }
   .photo-grid img.visible {
     opacity: 1;
@@ -581,7 +581,7 @@ button, a[role="button"], [class*="button" i], [class*="Button" i] {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.querySelectorAll('img').forEach((img, i) => {
-          img.style.transitionDelay = (i * 0.1) + 's';
+          img.style.transitionDelay = (i * 0.05) + 's';
           img.classList.add('visible');
         });
       }
