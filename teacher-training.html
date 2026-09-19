@@ -300,12 +300,12 @@
     object-fit: cover;
     border-radius: 12px;
     opacity: 0;
-    transform: translateY(8px) scale(0.98);
-    transition: opacity 0.45s ease, transform 0.45s ease;
+    transform: scale(0.92);
+    transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
   }
   .photo-grid img.visible {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: scale(1);
   }
   @media (max-width: 900px) {
     .photo-grid { grid-template-columns: repeat(3, 1fr); }
@@ -551,6 +551,54 @@
       background-attachment: scroll;
     }
   }
+
+  /* ---- Lightbox ---- */
+  .photo-grid img {
+    cursor: pointer;
+  }
+  .lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 10, 0, 0.92);
+    z-index: 500;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+  }
+  .lightbox-overlay.open {
+    display: flex;
+  }
+  .lightbox-overlay img {
+    max-width: 90vw;
+    max-height: 88vh;
+    border-radius: 8px;
+    object-fit: contain;
+  }
+  .lightbox-close {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #EAD5AA;
+    font-size: 1.5rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 501;
+  }
+  .lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  body.lightbox-open {
+    overflow: hidden;
+  }
 </style>
 </head>
 <body>
@@ -751,7 +799,37 @@
       document.body.classList.remove('nav-open');
     });
   });
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxClose = document.getElementById('lightbox-close');
+
+  function openLightbox(src) {
+    lightboxImg.src = src;
+    lightbox.classList.add('open');
+    document.body.classList.add('lightbox-open');
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.classList.remove('lightbox-open');
+  }
+
+  document.querySelectorAll('.photo-grid img').forEach(img => {
+    img.addEventListener('click', () => openLightbox(img.src));
+  });
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
 </script>
 
+
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+  <img src="" alt="" id="lightbox-img">
+</div>
 </body>
 </html>
