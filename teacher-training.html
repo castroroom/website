@@ -122,7 +122,7 @@
   main {
     max-width: 900px;
     margin: 0 auto;
-    padding: 9rem 1.5rem 6rem;
+    padding: 0 1.5rem 6rem;
   }
 
   .eyebrow {
@@ -171,12 +171,13 @@
     flex-wrap: wrap;
   }
 
+  /* All buttons on this page use the same treatment as the home page hero button */
   .cta {
     display: inline-block;
     padding: 0.9rem 2.2rem;
-    border: 1px solid var(--brown-1);
+    border: 1px solid #EAD5AA;
     border-radius: 9px;
-    color: var(--brown-1);
+    color: #EAD5AA;
     text-decoration: none;
     font-size: 0.85rem;
     letter-spacing: 0.08em;
@@ -185,11 +186,6 @@
   .cta:hover {
     background: #EAD5AA;
     color: #5e2500;
-  }
-  .cta.secondary {
-    border-color: var(--brown-3);
-    color: var(--brown-3);
-    opacity: 0.8;
   }
 
   section {
@@ -206,37 +202,6 @@
 
   p {
     margin-bottom: 1rem;
-  }
-
-  .quotes {
-    text-align: center;
-    font-style: italic;
-    color: var(--brown-2);
-  }
-  .quotes p {
-    margin-bottom: 0.75rem;
-  }
-
-  .starting-date {
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-size: 0.85rem;
-    color: var(--brown-3);
-    margin: 2rem 0;
-  }
-
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 0.75rem;
-    margin: 2rem 0;
-  }
-  .gallery img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 8px;
   }
 
   .highlight-block {
@@ -256,45 +221,51 @@
     font-weight: 600;
   }
 
-  .pillars {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0;
-  }
-  .pillar h4 {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--brown-3);
-  }
-  .pillar p {
-    font-size: 0.95rem;
-  }
-
   .price-block {
     text-align: center;
-    background: #FFFFFF;
+    color: var(--cream);
     border-radius: 16px;
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
     margin: 2rem 0;
+    position: relative;
+    background-image: url('images/S1_00672-Edit_copy.jpg');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+  }
+  .price-block::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(50, 25, 0, 0.55);
+    z-index: 0;
+  }
+  .price-block > * {
+    position: relative;
+    z-index: 1;
   }
   .price-block .price {
     font-size: clamp(2rem, 5vw, 2.8rem);
-    color: var(--brown-2);
+    color: var(--cream);
     margin-bottom: 0.5rem;
   }
   .price-block .plan {
     font-size: 0.9rem;
     margin-bottom: 0.25rem;
+    color: var(--cream);
   }
   .price-block .plan a {
-    color: var(--brown-3);
+    color: var(--tan);
     text-decoration: underline;
   }
   .price-block .plan-detail {
     font-size: 0.8rem;
-    color: var(--brown-3);
+    color: var(--cream);
     margin-bottom: 1.5rem;
+  }
+  .price-block .plan-detail a {
+    color: var(--tan);
+    text-decoration: underline;
   }
 
   footer {
@@ -336,6 +307,7 @@
   @media (max-width: 600px) {
     .photo-grid img { width: 200px; height: 260px; }
   }
+
   /* ---- FAQ accordion ---- */
   .faq {
     margin-top: 2rem;
@@ -381,7 +353,7 @@
   /* ---- Testimonials ---- */
   .testimonials-section {
     position: relative;
-    background-image: url('images/testimonials-bg.jpg');
+    background-image: url('images/S1_00577-Edit.jpg');
     background-size: cover;
     background-position: center;
     padding: 4rem 2rem;
@@ -425,6 +397,98 @@
       gap: 3rem;
     }
   }
+
+  /* ---- Hero ---- */
+  .tt-hero {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 8rem 1.5rem 3rem;
+    margin: 0 calc(50% - 50vw) 4rem;
+    background-image: url('images/S1_00758-Edit.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--cream);
+  }
+  .tt-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(50, 25, 0, 0.5);
+    z-index: 0;
+  }
+  .tt-hero > * {
+    position: relative;
+    z-index: 1;
+  }
+  .tt-hero h1 {
+    color: var(--cream);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+  }
+  .tt-hero h2.led-by {
+    color: var(--tan);
+  }
+  .tt-hero .with-names {
+    color: var(--cream);
+  }
+  .tt-hero .special-guests {
+    color: var(--tan);
+  }
+  .tt-hero .cta-row {
+    margin-bottom: 0;
+  }
+
+  /* ---- Pillars over image ---- */
+  .pillars-section {
+    position: relative;
+    border-radius: 16px;
+    padding: 4rem 1.5rem;
+    margin: 4rem 0;
+    background-image: url('images/S1_00504-Edit.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+  }
+  .pillars-box {
+    background: rgba(234, 213, 170, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 16px;
+    padding: 2.5rem;
+    max-width: 620px;
+    color: var(--brown-2);
+  }
+  .pillars-box p {
+    margin-bottom: 1.25rem;
+  }
+  .pillars-box p:last-child {
+    margin-bottom: 0;
+  }
+  .pillars-box strong {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  /* ---- Off-white block ---- */
+  .offwhite-block {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    margin: 2rem 0;
+    text-align: center;
+  }
+  .offwhite-block strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--brown-2);
+  }
 </style>
 </head>
 <body>
@@ -445,24 +509,19 @@
 
 <main>
 
-  <h1>200-Hour Teacher Training</h1>
-  <h2 class="led-by">Led by Jason Bowman</h2>
-  <p class="with-names">With Estee Fletter, Lauren Cohen, and Haley Havelock</p>
-  <p class="special-guests">Plus special guests&hellip;</p>
-
-  <div class="cta-row">
-    <a class="cta" href="https://clients.mindbodyonline.com/classic/ws?studioid=5739873&stype=43&prodid=100174" target="_blank" rel="noopener">Register Now</a>
-    <a class="cta secondary" href="contact.html">Ask a Question</a>
+  <div class="tt-hero">
+    <h1>200-Hour Teacher Training</h1>
+    <h2 class="led-by">Led by Jason Bowman</h2>
+    <p class="with-names">With Estee Fletter, Lauren Cohen, and Haley Havelock<br>Plus special guests&hellip;</p>
+    <div class="cta-row">
+      <a class="cta" href="https://clients.mindbodyonline.com/classic/ws?studioid=5739873&stype=43&prodid=100174" target="_blank" rel="noopener">Register Now</a>
+      <a class="cta" href="contact.html">Ask a Question</a>
+    </div>
   </div>
 
   <section>
-    <h3>the distinguished training to take your practice further.</h3>
-    <div class="quotes">
-      <p>"a fabulous combination of the cerebral and the embodied."</p>
-      <p>"the format is so supportive, and the attention to detail was incredible."</p>
-      <p>"i feel like this has changed who i am as a person, and how i interact with the world."</p>
-    </div>
-    <p class="starting-date">starting september 2026</p>
+    <p>The yoga practice thrives as a ritual part of life, a touchstone made of routine reminders of what matters most.<br>
+    We've designed a teacher training that supports the consistency of practice, while uncovering the many details that make it so rich.</p>
     <div class="photo-grid">
       <img src="images/S1_00800-Edit.jpg" alt="">
       <img src="images/S1_00504-Edit.jpg" alt="">
@@ -473,66 +532,38 @@
     </div>
   </section>
 
-  <section>
-    <p>the yoga practice thrives as a ritual part of life, a touchstone made of routine reminders of what matters most.</p>
-    <p>we've designed a teacher training that supports the consistency of practice, while uncovering the many details that make it so rich.</p>
-    <div class="cta-row">
-      <a class="cta" href="https://clients.mindbodyonline.com/classic/ws?studioid=5739873&stype=43&prodid=100174" target="_blank" rel="noopener">Register Now</a>
-      <a class="cta secondary" href="contact.html">Ask a Question</a>
-    </div>
-  </section>
-
   <section class="highlight-block">
-    <p><strong>for curious practitioners and aspiring teachers alike.</strong><br>
-    many people take yoga trainings not necessarily to become teachers, but to further establish themselves in the practice. this program provides a penetrating look behind the curtain, for anyone and everyone.</p>
-    <p><strong>each weekend provides a balanced look at a range of topics.</strong><br>
-    alignment principles, functional anatomy, classical yoga philosophy, meditation, pranayama, interpersonal dynamics, ethics, ayurveda, subtle body intelligence, sequencing, teacher practicum, and more.</p>
+    <p><strong>For curious practitioners and aspiring teachers alike.</strong><br>
+    Many people take yoga trainings not necessarily to become teachers, but to further establish themselves in the practice. This program provides a penetrating look behind the curtain, for anyone and everyone.</p>
+    <p><strong>Each weekend provides a balanced look at a range of topics.</strong><br>
+    Alignment principles, functional anatomy, classical yoga philosophy, meditation, pranayama, interpersonal dynamics, ethics, Ayurveda, subtle body intelligence, sequencing, teacher practicum, and more.</p>
   </section>
 
   <div class="cta-row">
     <a class="cta" href="https://clients.mindbodyonline.com/classic/ws?studioid=5739873&stype=43&prodid=100174" target="_blank" rel="noopener">Register Now</a>
-    <a class="cta secondary" href="contact.html">Ask a Question</a>
+    <a class="cta" href="contact.html">Ask a Question</a>
   </div>
 
-  <div class="photo-grid">
-    <img src="images/S1_00753-Edit.jpg" alt="">
-    <img src="images/S1_00672.jpg" alt="">
-    <img src="images/S1_00797-Edit.jpg" alt="">
-    <img src="images/0M9A8919-Edit-2.jpg" alt="">
-    <img src="images/0M9A2757-Edit.jpg" alt="">
-    <img src="images/NH9A3487-Edit.jpg" alt="">
-  </div>
-
-  <section>
-    <h3>our training is built on three core pillars:</h3>
-    <div class="pillars">
-      <div class="pillar">
-        <h4>personal practice</h4>
-        <p>the development of a three-dimensional understanding of the many facets of yoga, as well as the effort to integrate its concepts into personal behaviors and relationships.</p>
-      </div>
-      <div class="pillar">
-        <h4>seeing others</h4>
-        <p>witnessing, holding space, identifying energetics and aesthetics, and honing the stewardship of an educator.</p>
-      </div>
-      <div class="pillar">
-        <h4>communication</h4>
-        <p>how we talk about the things we know and love, connecting with other people through shared fascination and honesty, without being didactic or a caricature.</p>
-      </div>
+  <div class="pillars-section">
+    <div class="pillars-box">
+      <p><strong>Personal Practice</strong>The development of a three-dimensional understanding of the many facets of yoga, as well as the effort to integrate its concepts into personal behaviors and relationships.</p>
+      <p><strong>Seeing Others</strong>Witnessing, holding space, identifying energetics and aesthetics, and honing the stewardship of an educator.</p>
+      <p><strong>Communication</strong>How we talk about the things we know and love, connecting with other people through shared fascination and honesty, without being didactic or a caricature.</p>
     </div>
-  </section>
+  </div>
 
-  <section>
-    <p><strong>the call to practice is said to be the greatest gift one can receive.</strong><br>
-    the impulse to try yoga has been a turning point in the lives of so many people, for centuries. to happen upon the practice can feel like a homecoming, and this training provides a detailed blueprint of the structures that hold that home, upright and strong.</p>
-  </section>
+  <div class="offwhite-block">
+    <p><strong>The call to practice is said to be the greatest gift one can receive.</strong>
+    The impulse to try yoga has been a turning point in the lives of so many people, for centuries. To happen upon the practice can feel like a homecoming, and this training provides a detailed blueprint of the structures that hold that home, upright and strong.</p>
+  </div>
 
   <section class="price-block">
     <div class="price">$3,600</div>
-    <p class="plan">or $3,850 w/ <a href="https://clients.mindbodyonline.com/classic/ws?studioid=5739873&stype=40&prodid=120" target="_blank" rel="noopener">payment plan</a></p>
-    <p class="plan-detail">($642 per month, for six months)</p>
+    <p class="plan">Or $3,850</p>
+    <p class="plan-detail">w/ <a href="https://clients.mindbodyonline.com/classic/ws?studioid=5739873&stype=40&prodid=120" target="_blank" rel="noopener">payment plan</a><br>(<a href="https://clients.mindbodyonline.com/classic/ws?studioid=5739873&stype=40&prodid=120" target="_blank" rel="noopener">$642 per month, for six months</a>)</p>
     <div class="cta-row" style="margin-bottom:0;">
       <a class="cta" href="https://clients.mindbodyonline.com/classic/ws?studioid=5739873&stype=43&prodid=100174" target="_blank" rel="noopener">Register Now</a>
-      <a class="cta secondary" href="contact.html">Ask a Question</a>
+      <a class="cta" href="contact.html">Ask a Question</a>
     </div>
   </section>
 
