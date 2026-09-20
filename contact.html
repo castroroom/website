@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="images/favicon.png">
-<title>Contact | The Castro Room</title>
+<title>contact | the castro room</title>
 
 <link rel="stylesheet" href="https://use.typekit.net/acb2tog.css">
 
@@ -459,6 +459,11 @@
   <img class="footer-icon" src="images/tcr_triko_beige.png" alt="">
 </footer>
 
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+  <img src="" alt="" id="lightbox-img">
+</div>
+
 <script>
   const gridObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -499,9 +504,5 @@
 </script>
 
 
-<div class="lightbox-overlay" id="lightbox">
-  <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
-  <img src="" alt="" id="lightbox-img">
-</div>
 </body>
 </html>
