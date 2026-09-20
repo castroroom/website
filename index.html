@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="images/favicon.png">
 <title>The Castro Room | San Francisco Yoga</title>
 
 <link rel="stylesheet" href="https://use.typekit.net/acb2tog.css">
@@ -35,12 +36,19 @@
     top: 0; left: 0; right: 0;
     z-index: 100;
     display: flex;
+    align-items: center;
     justify-content: center;
+    gap: 1.5rem;
     padding: 1.5rem 1rem;
     background: rgba(250, 249, 242, 0.9);
     backdrop-filter: blur(6px);
     font-size: 0.85rem;
     letter-spacing: 0.08em;
+  }
+  .nav-logo {
+    height: 28px;
+    width: auto;
+    display: block;
   }
   nav a {
     color: var(--brown-1);
@@ -60,7 +68,7 @@
 
   @media (max-width: 640px) {
     nav {
-      justify-content: flex-end;
+      justify-content: space-between;
       padding: 1.1rem 1.25rem;
     }
     .nav-links {
@@ -417,13 +425,24 @@
 
   footer {
     padding: 3rem 1.5rem;
-    text-align: center;
     font-size: 0.85rem;
-    color: var(--brown-2);
     background: var(--brown-1);
     color: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
   }
   footer a { color: var(--tan); }
+  .footer-logo {
+    height: 60px;
+    width: auto;
+    display: block;
+  }
+  .footer-text {
+    text-align: center;
+  }
   @media (max-width: 640px) {
     .hero-block {
       background-attachment: scroll;
@@ -482,6 +501,7 @@
 <body>
 
 <nav>
+  <img class="nav-logo" src="images/logo_dark.png" alt="The Castro Room">
   <div class="nav-links" id="nav-links">
     <a href="#home">home</a>
     <a href="#schedule">schedule</a>
@@ -604,10 +624,13 @@ button, a[role="button"], [class*="button" i], [class*="Button" i] {
 </section>
 
 <footer>
-  <p>hello@castroroom.com</p>
-  <p>97 Collingwood Street &middot; San Francisco</p>
-  <p>415.529.1261</p>
-  <p style="margin-top:1rem;"><a href="https://instagram.com/castro.room" target="_blank">Instagram</a></p>
+  <img class="footer-logo" src="images/logo_light.png" alt="The Castro Room">
+  <div class="footer-text">
+    <p>hello@castroroom.com</p>
+    <p>97 Collingwood Street &middot; San Francisco</p>
+    <p>415.529.1261</p>
+    <p style="margin-top:1rem;"><a href="https://instagram.com/castro.room" target="_blank">Instagram</a></p>
+  </div>
 </footer>
 
 <script>
