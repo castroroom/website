@@ -877,6 +877,13 @@
   }, { threshold: 0.2 });
   document.querySelectorAll('.photo-grid').forEach(g => gridObserver.observe(g));
 
+  const textObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.offwhite-block, .pillars-box, .price-block, .testimonials-inner').forEach(el => textObserver.observe(el));
+
   const navToggle = document.getElementById('nav-toggle');
   const navLinks = document.getElementById('nav-links');
   navToggle.addEventListener('click', () => {
