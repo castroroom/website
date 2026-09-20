@@ -1,16 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>
-  if (window.location.hash) {
-    document.documentElement.style.visibility = 'hidden';
-    setTimeout(() => { document.documentElement.style.visibility = 'visible'; }, 3000);
-  }
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <title>the castro room | san francisco yoga</title>
+<meta name="description" content="Vinyasa yoga classes in San Francisco's Castro neighborhood. Expert teachers, 200-hour yoga teacher training, workshops, and community events at The Castro Room.">
+<link rel="canonical" href="https://castroroom.com/">
+
+<meta property="og:title" content="the castro room | san francisco yoga">
+<meta property="og:description" content="Vinyasa yoga classes in San Francisco's Castro neighborhood. Expert teachers, 200-hour yoga teacher training, workshops, and community events at The Castro Room.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://castroroom.com/">
+<meta property="og:image" content="https://castroroom.com/images/NH9A1989-HDR-Edit.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="the castro room | san francisco yoga">
+<meta name="twitter:description" content="Vinyasa yoga classes in San Francisco's Castro neighborhood. Expert teachers, 200-hour yoga teacher training, workshops, and community events at The Castro Room.">
+<meta name="twitter:image" content="https://castroroom.com/images/NH9A1989-HDR-Edit.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ExerciseGym",
+  "name": "The Castro Room",
+  "image": "https://castroroom.com/images/NH9A1989-HDR-Edit.jpg",
+  "url": "https://castroroom.com",
+  "telephone": "+14155291261",
+  "email": "hello@castroroom.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "97 Collingwood Street",
+    "addressLocality": "San Francisco",
+    "addressRegion": "CA",
+    "postalCode": "94114",
+    "addressCountry": "US"
+  },
+  "sameAs": ["https://instagram.com/castro.room"]
+}
+</script>
+
 
 <link rel="stylesheet" href="https://use.typekit.net/acb2tog.css">
 
@@ -577,9 +606,9 @@ html, body, * {
   <h2 style="font-size:1.1rem; margin-top:0.25rem; margin-bottom:0.25rem;">the distinguished training to take your practice further</h2>
   <a class="cta teacher-training-cta" href="teacher-training.html">Learn More</a>
   <div class="photo-grid" style="grid-template-columns: repeat(3, 1fr);">
-    <img src="images/0M9A8919-Edit-2.jpg" alt="" style="height:315px; object-fit:cover;">
-    <img src="images/S1_00800-Edit.jpg" alt="" style="height:315px; object-fit:cover;">
-    <img src="images/S1_00761-Edit.jpg" alt="" style="height:315px; object-fit:cover;">
+    <img src="images/0M9A8919-Edit-2.jpg" alt="Teacher training session at The Castro Room yoga studio, San Francisco" style="height:315px; object-fit:cover;">
+    <img src="images/S1_00800-Edit.jpg" alt="Vinyasa yoga class in progress at The Castro Room, San Francisco" style="height:315px; object-fit:cover;">
+    <img src="images/S1_00761-Edit.jpg" alt="Sunlit yoga mat at The Castro Room studio" style="height:315px; object-fit:cover;">
   </div>
 </section>
 
@@ -594,7 +623,7 @@ html, body, * {
 
 <section id="about">
   <div class="about-side-layout">
-    <img class="about-side-image" src="images/0M9A8545-Edit.jpg" alt="">
+    <img class="about-side-image" src="images/0M9A8545-Edit.jpg" alt="Yoga class practicing at The Castro Room, a yoga studio in San Francisco's Castro neighborhood">
     <div class="about-block info-block">
       <h2>about</h2>
       <p>The Castro Room is in the business of two things: teachers, and atmosphere. Our resources are devoted to supporting experts who practice what they teach, and to the stewardship of an outstanding physical space. The quality of our offerings stem from these two priorities.</p>
@@ -676,15 +705,12 @@ button, a[role="button"], [class*="button" i], [class*="Button" i] {
   document.querySelectorAll('.photo-grid').forEach(g => gridObserver.observe(g));
 
   if (window.location.hash) {
-    window.addEventListener('load', () => {
-      const target = document.querySelector(window.location.hash);
+    const target = document.querySelector(window.location.hash);
+    if (target) {
       setTimeout(() => {
-        if (target) {
-          target.scrollIntoView({ behavior: 'instant', block: 'start' });
-        }
-        document.documentElement.style.visibility = 'visible';
-      }, 150);
-    });
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 300);
+    }
   }
 
   const navToggle = document.getElementById('nav-toggle');
