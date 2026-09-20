@@ -44,11 +44,13 @@
     font-size: 0.85rem;
     letter-spacing: 0.08em;
   }
+  nav > a:first-child {
+    justify-self: start;
+  }
   .nav-logo {
     height: 45px;
     width: auto;
     display: block;
-    justify-self: start;
   }
   .nav-links {
     grid-column: 2;
@@ -429,26 +431,27 @@
   #teacher-training { background: #EAD5AA; }
 
   footer {
+    position: relative;
     padding: 3rem 1.5rem;
     font-size: 0.85rem;
     background: var(--brown-1);
     color: var(--cream);
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
+    text-align: center;
   }
   footer a { color: var(--tan); }
-  .footer-logo {
-    height: 96px;
+  .footer-icon {
+    position: absolute;
+    right: 2rem;
+    bottom: 0;
+    height: 140px;
     width: auto;
-    display: block;
-    justify-self: end;
-    margin-right: 1in;
   }
-  .footer-text {
-    text-align: center;
-    grid-column: 2;
+  @media (max-width: 640px) {
+    .footer-icon {
+      display: none;
+    }
   }
+
   @media (max-width: 640px) {
     .hero-block {
       background-attachment: scroll;
@@ -507,7 +510,7 @@
 <body>
 
 <nav>
-  <img class="nav-logo" src="images/logo_dark.png" alt="The Castro Room">
+  <a href="#home"><img class="nav-logo" src="images/logo_dark.png" alt="The Castro Room"></a>
   <div class="nav-links" id="nav-links">
     <a href="#home">home</a>
     <a href="#schedule">schedule</a>
@@ -630,13 +633,13 @@ button, a[role="button"], [class*="button" i], [class*="Button" i] {
 </section>
 
 <footer>
-  <img class="footer-logo" src="images/logo_light.png" alt="The Castro Room">
   <div class="footer-text">
     <p>hello@castroroom.com</p>
     <p>97 Collingwood Street &middot; San Francisco</p>
     <p>415.529.1261</p>
     <p style="margin-top:1rem;"><a href="https://instagram.com/castro.room" target="_blank">Instagram</a></p>
   </div>
+  <img class="footer-icon" src="images/tcr_triko_beige.png" alt="">
 </footer>
 
 <script>
