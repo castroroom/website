@@ -390,7 +390,7 @@
     transform: scale(1);
   }
   @media (max-width: 600px) {
-    .photo-grid { grid-template-columns: repeat(2, 1fr); }
+    .photo-grid { grid-template-columns: 1fr; }
   }
 
   /* ---- Placeholder embed blocks ---- */
@@ -643,6 +643,11 @@ button, a[role="button"], [class*="button" i], [class*="Button" i] {
   <img class="footer-icon" src="images/tcr_triko_beige.png" alt="">
 </footer>
 
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+  <img src="" alt="" id="lightbox-img">
+</div>
+
 <script>
   const sections = document.querySelectorAll('section');
   const observer = new IntersectionObserver((entries) => {
@@ -706,9 +711,5 @@ button, a[role="button"], [class*="button" i], [class*="Button" i] {
 </script>
 
 
-<div class="lightbox-overlay" id="lightbox">
-  <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
-  <img src="" alt="" id="lightbox-img">
-</div>
 </body>
 </html>
