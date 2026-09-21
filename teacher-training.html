@@ -594,13 +594,16 @@
     text-align: center;
     opacity: 0;
     transition: opacity 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .offwhite-block > * {
+    margin-bottom: 0;
   }
   .offwhite-block.visible {
     opacity: 1;
   }
-  }
-  .offwhite-block > *:last-child {
-    margin-bottom: 0;
   }
   .tt-hero, .tt-hero * , .price-block, .price-block * {
     color: #EAD5AA;
