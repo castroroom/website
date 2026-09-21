@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7CMZ8CLH2G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7CMZ8CLH2G');
+</script>
+
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="images/favicon.png">
@@ -101,7 +112,7 @@
     transition: color 0.3s ease;
   }
   nav a:hover { color: var(--tan); }
-  nav a.active { color: var(--brown-3); font-weight: 600; }
+  nav a.active { color: var(--brown-3); text-decoration: underline; text-underline-offset: 4px; }
 
   .nav-links {
     display: flex;
@@ -125,9 +136,7 @@
       align-items: center;
       justify-content: center;
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
+      inset: 0;
       height: 100dvh;
       background: var(--cream);
       gap: 1.75rem;
@@ -813,7 +822,7 @@
       <a class="cta waitlist-trigger" href="#">Join the Waitlist</a>
       <a class="cta" href="contact.html">Ask a Question</a>
     </div>
-    <p style="text-align:center; font-size:0.85rem; margin-top:-1rem;">This year's training began in September, join the waitlist to receive news about next year's training.</p>
+    <p style="text-align:center; font-size:0.85rem; margin-top:1.5rem;">This year's training began in September, join the waitlist to receive news about next year's training.</p>
   </div>
 
   <div class="offwhite-block">
@@ -866,7 +875,7 @@
     <a class="cta cta-dark waitlist-trigger" href="#">Join the Waitlist</a>
     <a class="cta cta-dark" href="contact.html">Ask a Question</a>
   </div>
-  <p style="text-align:center; font-size:0.85rem; margin-top:-1rem; margin-bottom:2rem;">This year's training began in September, join the waitlist to receive news about next year's training.</p>
+  <p style="text-align:center; font-size:0.85rem; margin-top:1.5rem; margin-bottom:2rem;">This year's training began in September, join the waitlist to receive news about next year's training.</p>
 
   <div class="pillars-section">
     <div class="pillars-box">
