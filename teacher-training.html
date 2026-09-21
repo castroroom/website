@@ -81,6 +81,7 @@
   }
   nav > a:first-child {
     justify-self: start;
+    grid-column: 1;
   }
   .nav-logo {
     height: 50px;
@@ -92,6 +93,7 @@
   }
   .nav-toggle {
     justify-self: end;
+    grid-column: 3;
   }
   nav a {
     color: var(--brown-1);
@@ -687,6 +689,101 @@
   body.lightbox-open {
     overflow: hidden;
   }
+  /* ---- Waitlist modal ---- */
+  .waitlist-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 10, 0, 0.75);
+    z-index: 600;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  .waitlist-overlay.open {
+    display: flex;
+  }
+  .waitlist-box {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 2.5rem;
+    max-width: 440px;
+    width: 100%;
+    position: relative;
+    text-align: left;
+  }
+  .waitlist-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: none;
+    border: 1px solid rgba(94, 47, 0, 0.3);
+    color: var(--brown-2);
+    font-size: 1.3rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .waitlist-box h3 {
+    text-align: left;
+    margin-bottom: 1.5rem;
+  }
+  .waitlist-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+  .waitlist-box label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--brown-3);
+    margin-bottom: 0.4rem;
+  }
+  .waitlist-box input,
+  .waitlist-box textarea {
+    width: 100%;
+    font-family: inherit;
+    font-size: 1rem;
+    text-transform: none;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(94, 47, 0, 0.25);
+    border-radius: 8px;
+    background: #FFFFFF;
+    color: var(--brown-1);
+  }
+  .waitlist-box input:focus,
+  .waitlist-box textarea:focus {
+    outline: none;
+    border-color: var(--brown-2);
+  }
+  .waitlist-box textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  .waitlist-box button[type="submit"] {
+    cursor: pointer;
+    background: none;
+    font-family: inherit;
+    align-self: flex-start;
+  }
+  .waitlist-box button[type="submit"]:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .waitlist-status {
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+    display: none;
+  }
+  .waitlist-status.success { color: #2d5a2d; display: block; }
+  .waitlist-status.error { color: #8a2d2d; display: block; }
 </style>
 </head>
 <body>
@@ -713,7 +810,7 @@
     <h2 class="led-by">Led by Jason Bowman</h2>
     <p class="with-names" style="margin-bottom: 2rem;">With Estee Fletter, Lauren Cohen, and Haley Havelock<br>Plus special guests&hellip;</p>
     <div class="cta-row">
-      <a class="cta" href="https://clients.mindbodyonline.com/classic/ws?studioid=5739873&stype=43&prodid=100174" target="_blank" rel="noopener">Register Now</a>
+      <a class="cta waitlist-trigger" href="#">Join the Waitlist</a>
       <a class="cta" href="contact.html">Ask a Question</a>
     </div>
   </div>
@@ -765,7 +862,7 @@
   </section>
 
   <div class="cta-row">
-    <a class="cta cta-dark" href="https://clients.mindbodyonline.com/classic/ws?studioid=5739873&stype=43&prodid=100174" target="_blank" rel="noopener">Register Now</a>
+    <a class="cta cta-dark waitlist-trigger" href="#">Join the Waitlist</a>
     <a class="cta cta-dark" href="contact.html">Ask a Question</a>
   </div>
 
@@ -788,7 +885,7 @@
     <p class="plan">Or $3,850</p>
     <p class="plan-detail">w/ <a href="https://clients.mindbodyonline.com/classic/ws?studioid=5739873&stype=40&prodid=120" target="_blank" rel="noopener">payment plan</a><br>(<a href="https://clients.mindbodyonline.com/classic/ws?studioid=5739873&stype=40&prodid=120" target="_blank" rel="noopener">$642 per month, for six months</a>)</p>
     <div class="cta-row" style="margin-bottom:0;">
-      <a class="cta" href="https://clients.mindbodyonline.com/classic/ws?studioid=5739873&stype=43&prodid=100174" target="_blank" rel="noopener">Register Now</a>
+      <a class="cta waitlist-trigger" href="#">Join the Waitlist</a>
       <a class="cta" href="contact.html">Ask a Question</a>
     </div>
   </section>
@@ -859,6 +956,29 @@
   <img class="footer-icon" src="images/tcr_triko_beige.png" alt="">
 </footer>
 
+<div class="waitlist-overlay" id="waitlist-overlay">
+  <div class="waitlist-box">
+    <button class="waitlist-close" id="waitlist-close" aria-label="Close">&times;</button>
+    <h3>join the waitlist</h3>
+    <form id="waitlist-form">
+      <div>
+        <label for="wl-name">Name</label>
+        <input type="text" id="wl-name" name="name" required>
+      </div>
+      <div>
+        <label for="wl-email">Email</label>
+        <input type="email" id="wl-email" name="email" required>
+      </div>
+      <div>
+        <label for="wl-message">Message</label>
+        <textarea id="wl-message" name="message" placeholder="Anything you'd like us to know?"></textarea>
+      </div>
+      <button type="submit" class="cta" id="waitlist-submit-btn">Join the Waitlist</button>
+      <p id="waitlist-status" class="waitlist-status"></p>
+    </form>
+  </div>
+</div>
+
 <div class="lightbox-overlay" id="lightbox">
   <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
   <img src="" alt="" id="lightbox-img">
@@ -883,6 +1003,71 @@
     });
   }, { threshold: 0.2 });
   document.querySelectorAll('.offwhite-block, .pillars-box, .price-block, .testimonials-inner').forEach(el => textObserver.observe(el));
+
+  const waitlistOverlay = document.getElementById('waitlist-overlay');
+  const waitlistClose = document.getElementById('waitlist-close');
+  const waitlistForm = document.getElementById('waitlist-form');
+  const waitlistSubmitBtn = document.getElementById('waitlist-submit-btn');
+  const waitlistStatus = document.getElementById('waitlist-status');
+
+  function openWaitlist() {
+    waitlistOverlay.classList.add('open');
+  }
+  function closeWaitlist() {
+    waitlistOverlay.classList.remove('open');
+  }
+
+  document.querySelectorAll('.waitlist-trigger').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openWaitlist();
+    });
+  });
+  waitlistClose.addEventListener('click', closeWaitlist);
+  waitlistOverlay.addEventListener('click', (e) => {
+    if (e.target === waitlistOverlay) closeWaitlist();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeWaitlist();
+  });
+
+  waitlistForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    waitlistSubmitBtn.disabled = true;
+    waitlistSubmitBtn.textContent = 'Sending...';
+    waitlistStatus.className = 'waitlist-status';
+    waitlistStatus.textContent = '';
+
+    const data = {
+      name: waitlistForm.name.value,
+      email: waitlistForm.email.value,
+      message: waitlistForm.message.value,
+    };
+
+    try {
+      const res = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
+
+      if (res.ok) {
+        waitlistStatus.textContent = "Thanks — you're on the list.";
+        waitlistStatus.className = 'waitlist-status success';
+        waitlistForm.reset();
+      } else {
+        waitlistStatus.textContent = result.error || 'Something went wrong. Please try again.';
+        waitlistStatus.className = 'waitlist-status error';
+      }
+    } catch (err) {
+      waitlistStatus.textContent = 'Something went wrong. Please try again.';
+      waitlistStatus.className = 'waitlist-status error';
+    } finally {
+      waitlistSubmitBtn.disabled = false;
+      waitlistSubmitBtn.textContent = 'Join the Waitlist';
+    }
+  });
 
   const navToggle = document.getElementById('nav-toggle');
   const navLinks = document.getElementById('nav-links');
