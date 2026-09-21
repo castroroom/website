@@ -784,6 +784,16 @@
     font-family: inherit;
     align-self: flex-start;
   }
+  .waitlist-submit {
+    background: #EAD5AA;
+    border-color: #EAD5AA;
+    color: #5e2500;
+  }
+  .waitlist-submit:hover {
+    background: #5e2500;
+    border-color: #5e2500;
+    color: #EAD5AA;
+  }
   button.cta:disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -987,7 +997,7 @@
         <label for="wl-message">Message</label>
         <textarea id="wl-message" name="message" placeholder="Anything you'd like us to know?"></textarea>
       </div>
-      <button type="submit" class="cta cta-dark" id="waitlist-submit-btn">Join the Waitlist</button>
+      <button type="submit" class="cta waitlist-submit" id="waitlist-submit-btn">Join the Waitlist</button>
       <p id="waitlist-status" class="waitlist-status"></p>
     </form>
   </div>
