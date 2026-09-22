@@ -527,18 +527,36 @@
   .tt-hero h1 {
     color: #EAD5AA;
     font-size: clamp(1.8rem, 4vw, 2.6rem);
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    transition-delay: 0.1s;
   }
   .tt-hero h2.led-by {
     color: var(--tan);
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    transition-delay: 0.15s;
   }
   .tt-hero .with-names {
     color: #EAD5AA;
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    transition-delay: 0.2s;
   }
   .tt-hero .special-guests {
     color: var(--tan);
   }
   .tt-hero .cta-row {
     margin-bottom: 0;
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    transition-delay: 0.3s;
+  }
+  .tt-hero.visible h1,
+  .tt-hero.visible h2.led-by,
+  .tt-hero.visible .with-names,
+  .tt-hero.visible .cta-row {
+    opacity: 1;
   }
 
   /* ---- Pillars over image ---- */
@@ -1052,7 +1070,7 @@
       if (entry.isIntersecting) entry.target.classList.add('visible');
     });
   }, { threshold: 0.2, rootMargin: '0px 0px -15% 0px' });
-  document.querySelectorAll('.offwhite-block, .pillars-box, .price-block, .testimonials-inner, .faq').forEach(el => textObserver.observe(el));
+  document.querySelectorAll('.offwhite-block, .pillars-box, .price-block, .testimonials-inner, .faq, .tt-hero').forEach(el => textObserver.observe(el));
 
   const waitlistOverlay = document.getElementById('waitlist-overlay');
   const waitlistClose = document.getElementById('waitlist-close');
