@@ -307,11 +307,6 @@
     background-size: cover;
     background-position: center;
     overflow: hidden;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-  }
-  .price-block.visible {
-    opacity: 1;
   }
   .price-block::before {
     content: "";
@@ -463,11 +458,6 @@
     max-width: 1000px;
     width: 100%;
     box-shadow: 0 20px 50px rgba(50, 25, 0, 0.35);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-  }
-  .testimonials-inner.visible {
-    opacity: 1;
   }
   .testimonials-inner h3 {
     text-align: center;
@@ -569,11 +559,6 @@
     padding: 2.5rem;
     max-width: 620px;
     color: var(--brown-2);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-  }
-  .pillars-box.visible {
-    opacity: 1;
   }
   .pillars-box p {
     margin-bottom: 1.25rem;
@@ -595,8 +580,6 @@
     margin: 0 auto 2rem;
     max-width: 620px;
     text-align: center;
-    opacity: 0;
-    transition: opacity 0.5s ease;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -818,6 +801,36 @@
   }
   .waitlist-status.success { color: #2d5a2d; display: block; }
   .waitlist-status.error { color: #8a2d2d; display: block; }
+  /* ---- Text fade-in, matching home page exactly ---- */
+  .offwhite-block h3,
+  .offwhite-block p,
+  .offwhite-block strong,
+  .offwhite-block .schedule-times,
+  .pillars-box h3,
+  .pillars-box p,
+  .price-block .price,
+  .price-block p,
+  .price-block .cta-row,
+  .testimonials-inner h3,
+  .testimonials-inner .testimonials-grid,
+  .faq-item {
+    opacity: 0;
+    transition: opacity 0.45s ease;
+  }
+  .offwhite-block.visible h3,
+  .offwhite-block.visible p,
+  .offwhite-block.visible strong,
+  .offwhite-block.visible .schedule-times,
+  .pillars-box.visible h3,
+  .pillars-box.visible p,
+  .price-block.visible .price,
+  .price-block.visible p,
+  .price-block.visible .cta-row,
+  .testimonials-inner.visible h3,
+  .testimonials-inner.visible .testimonials-grid,
+  .faq.visible .faq-item {
+    opacity: 1;
+  }
 </style>
 </head>
 <body>
@@ -1039,7 +1052,7 @@
       if (entry.isIntersecting) entry.target.classList.add('visible');
     });
   }, { threshold: 0.2 });
-  document.querySelectorAll('.offwhite-block, .pillars-box, .price-block, .testimonials-inner').forEach(el => textObserver.observe(el));
+  document.querySelectorAll('.offwhite-block, .pillars-box, .price-block, .testimonials-inner, .faq').forEach(el => textObserver.observe(el));
 
   const waitlistOverlay = document.getElementById('waitlist-overlay');
   const waitlistClose = document.getElementById('waitlist-close');
