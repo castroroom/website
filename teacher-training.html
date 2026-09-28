@@ -876,7 +876,7 @@
     <p class="with-names" style="margin-bottom: 2rem;">With Estee Fletter, Lauren Cohen, and Haley Havelock<br>Plus special guests&hellip;</p>
     <div class="cta-row">
       <a class="cta cta-solid waitlist-trigger" href="#">Join the Waitlist</a>
-      <a class="cta cta-solid" href="contact.html">Ask a Question</a>
+      <a class="cta cta-solid question-trigger" href="#">Ask a Question</a>
     </div>
     <p style="text-align:center; font-size:0.85rem; margin-top:1.5rem;">This year's training sold out, <br>join the waitlist to receive news about next year's.</p>
   </div>
@@ -929,7 +929,7 @@
 
   <div class="cta-row" style="margin-bottom:2rem;">
     <a class="cta cta-dark waitlist-trigger" href="#">Join the Waitlist</a>
-    <a class="cta cta-dark" href="contact.html">Ask a Question</a>
+    <a class="cta cta-dark question-trigger" href="#">Ask a Question</a>
   </div>
 
   <div class="pillars-section">
@@ -952,7 +952,7 @@
     <p class="plan-detail">w/ <a href="https://clients.mindbodyonline.com/classic/ws?studioid=5739873&stype=40&prodid=120" target="_blank" rel="noopener">payment plan</a><br>(<a href="https://clients.mindbodyonline.com/classic/ws?studioid=5739873&stype=40&prodid=120" target="_blank" rel="noopener">$642 per month, for six months</a>)</p>
     <div class="cta-row" style="margin-bottom:0;">
       <a class="cta cta-solid waitlist-trigger" href="#">Join the Waitlist</a>
-      <a class="cta cta-solid" href="contact.html">Ask a Question</a>
+      <a class="cta cta-solid question-trigger" href="#">Ask a Question</a>
     </div>
     <p style="text-align:center; font-size:0.85rem; margin-top:1rem;">This year's training sold out, <br>join the waitlist to receive news about next year's.</p>
   </section>
@@ -1046,6 +1046,29 @@
   </div>
 </div>
 
+<div class="waitlist-overlay" id="question-overlay">
+  <div class="waitlist-box">
+    <button class="waitlist-close" id="question-close" aria-label="Close">&times;</button>
+    <h3>ask a question</h3>
+    <form id="question-form">
+      <div>
+        <label for="q-name">Name</label>
+        <input type="text" id="q-name" name="name" required>
+      </div>
+      <div>
+        <label for="q-email">Email</label>
+        <input type="email" id="q-email" name="email" required>
+      </div>
+      <div>
+        <label for="q-message">Message</label>
+        <textarea id="q-message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="cta waitlist-submit" id="question-submit-btn">Send Question</button>
+      <p id="question-status" class="waitlist-status"></p>
+    </form>
+  </div>
+</div>
+
 <div class="lightbox-overlay" id="lightbox">
   <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
   <img src="" alt="" id="lightbox-img">
@@ -1133,6 +1156,72 @@
     } finally {
       waitlistSubmitBtn.disabled = false;
       waitlistSubmitBtn.textContent = 'Join the Waitlist';
+    }
+  });
+
+  const questionOverlay = document.getElementById('question-overlay');
+  const questionClose = document.getElementById('question-close');
+  const questionForm = document.getElementById('question-form');
+  const questionSubmitBtn = document.getElementById('question-submit-btn');
+  const questionStatus = document.getElementById('question-status');
+
+  function openQuestion() {
+    questionOverlay.classList.add('open');
+  }
+  function closeQuestion() {
+    questionOverlay.classList.remove('open');
+  }
+
+  document.querySelectorAll('.question-trigger').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openQuestion();
+    });
+  });
+  questionClose.addEventListener('click', closeQuestion);
+  questionOverlay.addEventListener('click', (e) => {
+    if (e.target === questionOverlay) closeQuestion();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeQuestion();
+  });
+
+  questionForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    questionSubmitBtn.disabled = true;
+    questionSubmitBtn.textContent = 'Sending...';
+    questionStatus.className = 'waitlist-status';
+    questionStatus.textContent = '';
+
+    const data = {
+      name: questionForm.name.value,
+      email: questionForm.email.value,
+      subject: 'Teacher Training Question',
+      message: questionForm.message.value,
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
+
+      if (res.ok) {
+        questionStatus.textContent = "Thanks — we'll be in touch soon.";
+        questionStatus.className = 'waitlist-status success';
+        questionForm.reset();
+      } else {
+        questionStatus.textContent = result.error || 'Something went wrong. Please try again.';
+        questionStatus.className = 'waitlist-status error';
+      }
+    } catch (err) {
+      questionStatus.textContent = 'Something went wrong. Please try again.';
+      questionStatus.className = 'waitlist-status error';
+    } finally {
+      questionSubmitBtn.disabled = false;
+      questionSubmitBtn.textContent = 'Send Question';
     }
   });
 
