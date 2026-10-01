@@ -1,0 +1,11 @@
+{
+  "redirects": [
+    { "source": "/about", "destination": "/#about", "permanent": true },
+    { "source": "/schedule", "destination": "/#schedule", "permanent": true },
+    { "source": "/teacher-training", "destination": "/teacher-training.html", "permanent": true },
+    { "source": "/events", "destination": "/#events", "permanent": true },
+    { "source": "/purchase", "destination": "/#purchase", "permanent": true },
+    { "source": "/contact", "destination": "/contact.html", "permanent": true },
+    { "source": "/3for30", "destination": "/#purchase", "permanent": true }
+  ]
+}
