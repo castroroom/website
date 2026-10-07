@@ -10,14 +10,40 @@
         }
       });
     }, { threshold: 0.2, rootMargin: '0px 0px -15% 0px' });
-    document.querySelectorAll('.photo-grid').forEach(g => gridObserver.observe(g));
+    const grids = document.querySelectorAll('.photo-grid');
+    grids.forEach(g => gridObserver.observe(g));
 
     const textObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.2, rootMargin: '0px 0px -15% 0px' });
-    document.querySelectorAll('.offwhite-block, .pillars-box, .price-block, .testimonials-inner, .faq, .tt-hero').forEach(el => textObserver.observe(el));
+    const textTargets = document.querySelectorAll('.offwhite-block, .pillars-box, .price-block, .testimonials-inner, .faq, .tt-hero');
+    textTargets.forEach(el => textObserver.observe(el));
+
+    // Safety net: elements near the bottom of a short page can become
+    // structurally unable to satisfy the shrunk rootMargin above (there's
+    // no room left to scroll them "far enough" past it). Catch anything
+    // still unrevealed shortly after load and reveal it directly.
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        textTargets.forEach(el => {
+          if (!el.classList.contains('visible') && el.getBoundingClientRect().top < window.innerHeight) {
+            el.classList.add('visible');
+          }
+        });
+        grids.forEach(g => {
+          if (g.getBoundingClientRect().top < window.innerHeight) {
+            g.querySelectorAll('img').forEach((img, i) => {
+              if (!img.classList.contains('visible')) {
+                (img as HTMLElement).style.transitionDelay = (i * 0.05) + 's';
+                img.classList.add('visible');
+              }
+            });
+          }
+        });
+      }, 500);
+    });
   }
 
   initTTScrollEffects();
