@@ -1,0 +1,24 @@
+<script>
+  function initTTScrollEffects() {
+    const gridObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('img').forEach((img, i) => {
+            (img as HTMLElement).style.transitionDelay = (i * 0.05) + 's';
+            img.classList.add('visible');
+          });
+        }
+      });
+    }, { threshold: 0.2, rootMargin: '0px 0px -15% 0px' });
+    document.querySelectorAll('.photo-grid').forEach(g => gridObserver.observe(g));
+
+    const textObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2, rootMargin: '0px 0px -15% 0px' });
+    document.querySelectorAll('.offwhite-block, .pillars-box, .price-block, .testimonials-inner, .faq, .tt-hero').forEach(el => textObserver.observe(el));
+  }
+
+  document.addEventListener('astro:page-load', initTTScrollEffects);
+</script>

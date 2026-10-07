@@ -1,0 +1,34 @@
+<script>
+  function initHomeScrollEffects() {
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -15% 0px' });
+    sections.forEach(s => observer.observe(s));
+
+    const gridObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('img').forEach((img, i) => {
+            (img as HTMLElement).style.transitionDelay = (i * 0.05) + 's';
+            img.classList.add('visible');
+          });
+        }
+      });
+    }, { threshold: 0.2, rootMargin: '0px 0px -15% 0px' });
+    document.querySelectorAll('.photo-grid').forEach(g => gridObserver.observe(g));
+
+    if (window.location.hash) {
+      const target = document.querySelector(window.location.hash);
+      if (target) {
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 300);
+      }
+    }
+  }
+
+  document.addEventListener('astro:page-load', initHomeScrollEffects);
+</script>

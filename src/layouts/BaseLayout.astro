@@ -1,0 +1,87 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Lightbox from '../components/Lightbox.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string; // e.g. "/" or "/about"
+  ogImage?: string;
+  activeNav?: string; // which nav link, if any, should be marked active
+}
+
+const {
+  title,
+  description,
+  path,
+  ogImage = 'https://castroroom.com/images/NH9A1989-HDR-Edit.jpg',
+  activeNav,
+} = Astro.props;
+
+const canonical = `https://castroroom.com${path === '/' ? '/' : path}`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7CMZ8CLH2G"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7CMZ8CLH2G');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonical}>
+
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content={canonical}>
+  <meta property="og:image" content={ogImage}>
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={ogImage}>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ExerciseGym",
+    "name": "The Castro Room",
+    "image": "https://castroroom.com/images/NH9A1989-HDR-Edit.jpg",
+    "url": "https://castroroom.com",
+    "telephone": "+14155291261",
+    "email": "hello@castroroom.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "97 Collingwood Street",
+      "addressLocality": "San Francisco",
+      "addressRegion": "CA",
+      "postalCode": "94114",
+      "addressCountry": "US"
+    },
+    "sameAs": ["https://instagram.com/castro.room"]
+  })} />
+
+  <link rel="stylesheet" href="https://use.typekit.net/acb2tog.css">
+</head>
+<body>
+  <Nav active={activeNav} />
+  <main>
+    <slot />
+  </main>
+  <Footer />
+  <slot name="modals" />
+  <Lightbox />
+  <slot name="scripts" />
+</body>
+</html>
