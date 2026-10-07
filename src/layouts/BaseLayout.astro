@@ -2,7 +2,13 @@
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import Lightbox from '../components/Lightbox.astro';
-import '../styles/global.css';
+// Note: no global stylesheet imported here on purpose. Each page imports
+// its own complete, self-contained stylesheet (global.css for the home-style
+// pages, teacher-training.css, contact.css) to avoid two independently
+// authored stylesheets colliding on shared selector names like .photo-grid,
+// .cta, nav, footer, etc. — CSS cascade is per-property, not per-file, so
+// a property declared only in one file silently survives even when the
+// "other" file is meant to fully own that selector on its page.
 
 interface Props {
   title: string;
