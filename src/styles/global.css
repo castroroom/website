@@ -550,3 +550,16 @@
     .events-embed--desktop { display: none; }
     .events-embed--mobile { display: block; }
   }
+
+  /* Clickable section headings: look identical to plain headings, color shifts on hover */
+  .section-link {
+    color: inherit;
+    text-decoration: none;
+    font: inherit;
+    letter-spacing: inherit;
+    transition: color 0.2s ease;
+  }
+  .section-link--light:hover,
+  .section-link--light:focus-visible { color: #EAD5AA; }
+  .section-link--cream:hover,
+  .section-link--cream:focus-visible { color: #FAF9F2; }
