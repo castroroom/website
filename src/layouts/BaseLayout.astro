@@ -16,6 +16,7 @@ interface Props {
   path: string; // e.g. "/" or "/about"
   ogImage?: string;
   activeNav?: string; // which nav link, if any, should be marked active
+  standalone?: boolean; // true for single-section pages (/about, /schedule, ...) that need to clear the fixed nav
 }
 
 const {
@@ -24,6 +25,7 @@ const {
   path,
   ogImage = 'https://castroroom.com/images/NH9A1989-HDR-Edit.jpg',
   activeNav,
+  standalone = false,
 } = Astro.props;
 
 const canonical = `https://castroroom.com${path === '/' ? '/' : path}`;
@@ -82,7 +84,7 @@ const canonical = `https://castroroom.com${path === '/' ? '/' : path}`;
 </head>
 <body>
   <Nav active={activeNav} />
-  <main>
+  <main class:list={{ standalone }}>
     <slot />
   </main>
   <Footer />

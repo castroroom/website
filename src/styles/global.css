@@ -505,3 +505,17 @@
   body.lightbox-open {
     overflow: hidden;
   }
+
+  /* ---- Standalone section pages (/about, /schedule, /events, /purchase) ----
+     On the home page these sections sit beneath other sections. As the first
+     element on their own page they sit directly under the fixed nav, so they
+     need top padding to clear it (9rem, same as /contact). */
+  main.standalone > #schedule,
+  main.standalone > #events,
+  main.standalone > #purchase,
+  main.standalone > #about {
+    padding-top: 9rem;
+  }
+  main.standalone > #about .about-side-layout {
+    padding-top: 1.25rem;
+  }
