@@ -1,0 +1,829 @@
+  :root {
+    --cream: #FAF9F2;
+    --tan: #EAD5AA;
+    --brown-1: #5e2f00;
+    --brown-2: #5e2500;
+    --brown-3: #612000;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: "proxima-nova", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 300;
+    background: var(--cream);
+    color: var(--brown-1);
+    line-height: 1.6;
+    text-transform: lowercase;
+  }
+
+  /* ---- Nav ---- */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 1.5rem 1.5rem;
+    background: rgba(250, 249, 242, 0.9);
+    backdrop-filter: blur(6px);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+  }
+  nav > a:first-child {
+    justify-self: start;
+    grid-column: 1;
+  }
+  .nav-logo {
+    height: 50px;
+    width: auto;
+    display: block;
+  }
+  .nav-links {
+    grid-column: 2;
+  }
+  .nav-toggle {
+    justify-self: end;
+    grid-column: 3;
+  }
+  nav a {
+    color: var(--brown-1);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  nav a:hover { color: var(--tan); }
+  nav a.active { color: var(--brown-3); text-decoration: underline; text-underline-offset: 4px; }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+  }
+  .nav-links a {
+    white-space: nowrap;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  @media (max-width: 640px) {
+    nav {
+      padding: 1.1rem 1.25rem;
+    }
+    .nav-links {
+      display: none;
+    }
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      inset: 0;
+      height: 100dvh;
+      background: var(--cream);
+      gap: 1.75rem;
+      font-size: 1.1rem;
+      z-index: 150;
+      padding: 4rem 2rem 3rem;
+      opacity: 0;
+      animation: navFadeIn 0.25s ease forwards;
+    }
+    @keyframes navFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    body.nav-open {
+      overflow: hidden;
+    }
+    .nav-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 26px;
+      height: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 200;
+      padding: 0;
+    }
+    .nav-toggle span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background: var(--brown-1);
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  }
+
+  /* ---- Layout ---- */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem 0;
+  }
+
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.75rem;
+    color: var(--brown-3);
+    margin-bottom: 0.4rem;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  h2.led-by {
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-align: center;
+    color: var(--brown-2);
+    margin-bottom: 0.25rem;
+  }
+
+  .with-names {
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--brown-2);
+    margin-bottom: 0.25rem;
+  }
+
+  .special-guests {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--brown-3);
+    margin-bottom: 2rem;
+  }
+
+  .cta-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+
+  /* All buttons on this page use the same treatment as the home page hero button */
+  .cta {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    border: 1px solid #EAD5AA;
+    border-radius: 9px;
+    color: #EAD5AA;
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  .cta:hover {
+    background: #EAD5AA;
+    color: #5e2500;
+  }
+  .cta-dark {
+    border-color: #5e2500;
+    color: #5e2500;
+  }
+  .cta-dark:hover {
+    background: #5e2500;
+    color: #EAD5AA;
+  }
+
+  section {
+    margin-bottom: 4rem;
+  }
+  .gallery-wrap {
+    margin-bottom: 0;
+  }
+
+  h3 {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: 400;
+    color: var(--brown-2);
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  .highlight-block {
+    background: var(--tan);
+    color: var(--brown-2);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem 0;
+  }
+  .highlight-block p {
+    margin-bottom: 1rem;
+  }
+  .highlight-block p:last-child {
+    margin-bottom: 0;
+  }
+  .highlight-block strong {
+    font-weight: 600;
+  }
+
+  .price-block {
+    text-align: center;
+    color: #EAD5AA;
+    border-radius: 0;
+    padding: 4rem 2rem;
+    margin: 0 calc(50% - 50vw) 2rem;
+    position: relative;
+    background-image: url('/images/castro-room-yoga-teacher-training-manual.jpg');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+  }
+  .price-block::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(50, 25, 0, 0.25);
+    z-index: 0;
+  }
+  .price-block > * {
+    position: relative;
+    z-index: 1;
+  }
+  .price-block .price {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    color: #EAD5AA;
+    margin-bottom: 0.5rem;
+  }
+  .price-block .plan {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+    color: #EAD5AA;
+  }
+  .price-block .plan a {
+    color: var(--tan);
+    text-decoration: underline;
+  }
+  .price-block .plan-detail {
+    font-size: 0.8rem;
+    color: #EAD5AA;
+    margin-bottom: 1.5rem;
+  }
+  .price-block .plan-detail a {
+    color: var(--tan);
+    text-decoration: underline;
+  }
+
+  footer {
+    position: relative;
+    padding: 3rem 1.5rem;
+    font-size: 0.85rem;
+    background: var(--brown-1);
+    color: #EAD5AA;
+    text-align: center;
+  }
+  footer a { color: var(--tan); }
+  .footer-icon {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100px;
+    width: auto;
+  }
+  @media (max-width: 640px) {
+    .footer-icon {
+      display: none;
+    }
+  }
+  footer p { margin-bottom: 0.4rem; }
+
+
+  /* ---- Photo grid entrance ---- */
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    margin: 0 calc(50% - 50vw) 2rem;
+    padding: 0 1.5rem;
+  }
+  .photo-grid img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    opacity: 0;
+    transform: scale(0.92);
+    transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
+  }
+  .photo-grid img.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+  @media (max-width: 900px) {
+    .photo-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .photo-grid { grid-template-columns: repeat(2, 1fr); }
+    .photo-grid img { height: 160px; }
+    .offwhite-block { max-width: 100%; }
+  }
+
+  /* ---- FAQ accordion ---- */
+  .faq {
+    margin-top: 2rem;
+  }
+  .faq h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .faq-item {
+    border-bottom: 1px solid rgba(94, 47, 0, 0.2);
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 1.25rem 0;
+    font-size: 1.05rem;
+    color: var(--brown-2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-item summary::after {
+    content: "+";
+    font-size: 1.4rem;
+    line-height: 1;
+    color: var(--brown-3);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+  .faq-item[open] summary::after {
+    transform: rotate(45deg);
+  }
+  .faq-item p {
+    padding-bottom: 1.5rem;
+    color: var(--brown-1);
+    font-size: 0.95rem;
+  }
+
+  /* ---- Testimonials ---- */
+  .testimonials-section {
+    background-image: url('/images/yoga-class-students-folding-forward-castro-room.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 5rem 1.5rem;
+    border-radius: 0;
+    margin: 4rem calc(50% - 50vw) 0;
+    display: flex;
+    justify-content: center;
+  }
+  .testimonials-inner {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 3rem 2.5rem;
+    max-width: 1000px;
+    width: 100%;
+    box-shadow: 0 20px 50px rgba(50, 25, 0, 0.35);
+  }
+  .testimonials-inner h3 {
+    text-align: center;
+    color: var(--brown-2);
+    margin-bottom: 3rem;
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+  .testimonial-quote {
+    position: relative;
+    color: var(--brown-1);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    padding-top: 1.5rem;
+  }
+  .testimonial-quote::before {
+    content: "\201C";
+    position: absolute;
+    top: -1rem;
+    left: 0;
+    font-size: 3.5rem;
+    font-family: Georgia, serif;
+    color: var(--tan);
+    line-height: 1;
+  }
+  .testimonial-quote p {
+    margin-bottom: 1rem;
+  }
+  @media (max-width: 900px) {
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  /* ---- Hero ---- */
+  .tt-hero {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 8rem 1.5rem 3rem;
+    margin: 0 calc(50% - 50vw) 2rem;
+    background-image: url('/images/yoga-mats-bolster-notebook-sunlit-studio-floor.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #EAD5AA;
+  }
+  .tt-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(50, 25, 0, 0.5);
+    z-index: 0;
+  }
+  .tt-hero > * {
+    position: relative;
+    z-index: 1;
+  }
+  .tt-hero h1 {
+    color: #EAD5AA;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    transition-delay: 0.1s;
+  }
+  .tt-hero h2.led-by {
+    color: var(--tan);
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    transition-delay: 0.15s;
+  }
+  .tt-hero .with-names {
+    color: #EAD5AA;
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    transition-delay: 0.2s;
+  }
+  .tt-hero .special-guests {
+    color: var(--tan);
+  }
+  .tt-hero .cta-row {
+    margin-bottom: 0;
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    transition-delay: 0.3s;
+  }
+  .tt-hero.visible h1,
+  .tt-hero.visible h2.led-by,
+  .tt-hero.visible .with-names,
+  .tt-hero.visible .cta-row {
+    opacity: 1;
+  }
+
+  /* ---- Pillars over image ---- */
+  .pillars-section {
+    position: relative;
+    border-radius: 0;
+    padding: 4rem 1.5rem;
+    margin: 0 calc(50% - 50vw) 2rem;
+    background-image: url('/images/vinyasa-yoga-class-triangle-pose-san-francisco.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+  }
+  .pillars-box {
+    background: #EAD5AA;
+    border-radius: 16px;
+    padding: 2.5rem;
+    max-width: 620px;
+    color: var(--brown-2);
+  }
+  .pillars-box p {
+    margin-bottom: 1.25rem;
+  }
+  .pillars-box p:last-child {
+    margin-bottom: 0;
+  }
+  .pillars-box strong {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  /* ---- Off-white block ---- */
+  .offwhite-block {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    margin: 0 auto 2rem;
+    max-width: 620px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .offwhite-block > * {
+    margin-bottom: 0 !important;
+  }
+  .offwhite-block.visible {
+    opacity: 1;
+  }
+  .tt-hero, .tt-hero * , .price-block, .price-block * {
+    color: #EAD5AA;
+  }
+
+  .offwhite-block strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--brown-2);
+  }
+  .tt-left {
+    text-align: left;
+  }
+
+  .schedule-heading {
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+  .schedule-times {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+  .schedule-times strong {
+    display: inline;
+    font-weight: 600;
+  }
+  .schedule-dates {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 1rem;
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--brown-2);
+  }
+  .schedule-dates .month {
+    padding: 0.5rem 0;
+  }
+  @media (max-width: 600px) {
+    .schedule-times, .schedule-dates {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 640px) {
+    .tt-hero {
+      background-attachment: scroll;
+    }
+  }
+
+  /* ---- Lightbox ---- */
+  .photo-grid img {
+    cursor: pointer;
+  }
+  .lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 10, 0, 0.92);
+    z-index: 500;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+  }
+  .lightbox-overlay.open {
+    display: flex;
+  }
+  .lightbox-overlay img {
+    max-width: 90vw;
+    max-height: 88vh;
+    border-radius: 8px;
+    object-fit: contain;
+  }
+  .lightbox-close {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #EAD5AA;
+    font-size: 1.5rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 501;
+  }
+  .lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  .lightbox-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #EAD5AA;
+    font-size: 2rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 501;
+  }
+  .lightbox-nav:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  .lightbox-prev {
+    left: 1.5rem;
+  }
+  .lightbox-next {
+    right: 1.5rem;
+  }
+  @media (max-width: 640px) {
+    .lightbox-nav {
+      width: 42px;
+      height: 42px;
+      font-size: 1.5rem;
+    }
+    .lightbox-prev { left: 0.5rem; }
+    .lightbox-next { right: 0.5rem; }
+  }
+  body.lightbox-open {
+    overflow: hidden;
+  }
+  /* ---- Waitlist modal ---- */
+  .waitlist-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 10, 0, 0.75);
+    z-index: 600;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  .waitlist-overlay.open {
+    display: flex;
+  }
+  .waitlist-box {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 2.5rem;
+    max-width: 440px;
+    width: 100%;
+    position: relative;
+    text-align: left;
+  }
+  .waitlist-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: none;
+    border: 1px solid rgba(94, 47, 0, 0.3);
+    color: var(--brown-2);
+    font-size: 1.3rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .waitlist-box h3 {
+    text-align: left;
+    margin-bottom: 1.5rem;
+  }
+  .waitlist-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+  .waitlist-box label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--brown-3);
+    margin-bottom: 0.4rem;
+  }
+  .waitlist-box input,
+  .waitlist-box textarea {
+    width: 100%;
+    font-family: inherit;
+    font-size: 1rem;
+    text-transform: none;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(94, 47, 0, 0.25);
+    border-radius: 8px;
+    background: #FFFFFF;
+    color: var(--brown-1);
+  }
+  .waitlist-box input:focus,
+  .waitlist-box textarea:focus {
+    outline: none;
+    border-color: var(--brown-2);
+  }
+  .waitlist-box textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  button.cta {
+    cursor: pointer;
+    font-family: inherit;
+    align-self: flex-start;
+  }
+  .waitlist-submit,
+  .cta-solid {
+    background: #EAD5AA;
+    border-color: #EAD5AA;
+    color: #5e2500;
+    text-transform: lowercase;
+  }
+  .waitlist-submit:hover {
+    background: #5e2500;
+    border-color: #5e2500;
+    color: #EAD5AA;
+  }
+  .cta-solid:hover {
+    background: transparent;
+    border-color: #EAD5AA;
+    color: #EAD5AA;
+  }
+  button.cta:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .waitlist-status {
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+    display: none;
+  }
+  .waitlist-status.success { color: #2d5a2d; display: block; }
+  .waitlist-status.error { color: #8a2d2d; display: block; }
+  /* ---- Text fade-in, matching home page exactly ---- */
+  .offwhite-block h3,
+  .offwhite-block p,
+  .offwhite-block strong,
+  .offwhite-block .schedule-times,
+  .pillars-box h3,
+  .pillars-box p,
+  .price-block .price,
+  .price-block p,
+  .price-block .cta-row,
+  .testimonials-inner h3,
+  .testimonials-inner .testimonials-grid,
+  .faq-item {
+    opacity: 0;
+    transition: opacity 0.45s ease;
+  }
+  .offwhite-block.visible h3,
+  .offwhite-block.visible p,
+  .offwhite-block.visible strong,
+  .offwhite-block.visible .schedule-times,
+  .pillars-box.visible h3,
+  .pillars-box.visible p,
+  .price-block.visible .price,
+  .price-block.visible p,
+  .price-block.visible .cta-row,
+  .testimonials-inner.visible h3,
+  .testimonials-inner.visible .testimonials-grid,
+  .faq.visible .faq-item {
+    opacity: 1;
+  }

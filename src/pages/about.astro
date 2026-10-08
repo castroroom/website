@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/global.css';
+import About from '../components/sections/About.astro';
+import StandaloneReveal from '../components/StandaloneReveal.astro';
+---
+
+<BaseLayout
+  title="about | the castro room"
+  description="The Castro Room is a vinyasa yoga studio in San Francisco's Castro neighborhood, at the corner of 18th and Collingwood for decades. Learn our history and what to expect."
+  path="/about"
+  standalone
+>
+  <About standalone />
+
+  <Fragment slot="scripts">
+    <StandaloneReveal />
+  </Fragment>
+</BaseLayout>

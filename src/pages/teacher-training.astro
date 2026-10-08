@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WaitlistModal from '../components/WaitlistModal.astro';
+import QuestionModal from '../components/QuestionModal.astro';
+import TTScrollEffects from '../components/TTScrollEffects.astro';
+import '../styles/teacher-training.css';
+import { images, imagePath, ttGallery1, ttGallery2 } from '../data/images';
+---
+
+<BaseLayout
+  title="200-hour teacher training | the castro room"
+  description="200-hour yoga teacher training in San Francisco. A distinguished, extended-format program for vinyasa yoga practitioners and aspiring teachers at The Castro Room."
+  path="/teacher-training"
+  ogImageKey="circle"
+  activeNav="teacher-training"
+>
+  <div class="tt-hero">
+    <h1><span style="font-size:0.85em; font-weight:400;">200</span>-Hour Teacher Training</h1>
+    <h2 class="led-by">Led by Jason Bowman</h2>
+    <p class="with-names" style="margin-bottom: 2rem;">With Estee Fletter, Lauren Cohen, and Haley Havelock<br>Plus special guests&hellip;</p>
+    <div class="cta-row">
+      <a class="cta cta-solid waitlist-trigger" href="#">Join the Waitlist</a>
+      <a class="cta cta-solid question-trigger" href="#">Ask a Question</a>
+    </div>
+    <p style="text-align:center; font-size:0.85rem; margin-top:1.5rem;">This year's training sold out, <br>join the waitlist to receive news about next year's.</p>
+  </div>
+
+  <div class="offwhite-block">
+    <p class="tt-left">The yoga practice thrives as a ritual part of life, a touchstone made of routine reminders of what matters most.</p>
+    <p class="tt-left">We've designed a teacher training that supports the consistency of practice, while uncovering the many details that make it so rich.</p>
+
+    <p class="schedule-heading tt-left"><strong>One weekend immersion per month, for ten months, interspersed with book groups to discuss some of the best texts on the practice.</strong></p>
+
+    <div class="schedule-times">
+      <div>
+        <p><strong>Fridays</strong>: 4:30 - 8:30p</p>
+        <p><strong>Saturdays</strong>: 11:00a - 7:30p</p>
+        <p><strong>Sundays</strong>: 10:45a - 4:15p</p>
+      </div>
+      <div>
+        <p>Plus <strong>Thursday</strong> Book Groups</p>
+        <p>on Zoom: 6:00 - 8:00p</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="gallery-wrap">
+    <div class="photo-grid">
+      {ttGallery1.map((key) => (
+        <img src={imagePath(key)} alt={images[key].alt} width={images[key].width} height={images[key].height} loading="lazy" decoding="async" />
+      ))}
+    </div>
+    <div class="photo-grid">
+      {ttGallery2.map((key) => (
+        <img src={imagePath(key)} alt={images[key].alt} width={images[key].width} height={images[key].height} loading="lazy" decoding="async" />
+      ))}
+    </div>
+  </section>
+
+  <section class="offwhite-block">
+    <p class="tt-left"><strong>For curious practitioners and aspiring teachers alike.</strong></p>
+    <p class="tt-left">Many people take yoga trainings not necessarily to become teachers, but to further establish themselves in the practice. This program provides a penetrating look behind the curtain, for anyone and everyone.</p>
+    <p class="tt-left"><strong>Each weekend provides a balanced look at a range of topics.</strong></p>
+    <p class="tt-left">Alignment principles, functional anatomy, classical yoga philosophy, meditation, pranayama, interpersonal dynamics, ethics, Ayurveda, subtle body intelligence, sequencing, teacher practicum, and more.</p>
+  </section>
+
+  <div class="cta-row" style="margin-bottom:2rem;">
+    <a class="cta cta-dark waitlist-trigger" href="#">Join the Waitlist</a>
+    <a class="cta cta-dark question-trigger" href="#">Ask a Question</a>
+  </div>
+
+  <div class="pillars-section">
+    <div class="pillars-box">
+      <h3 style="color: var(--brown-2);">Our training is built on three core pillars:</h3>
+      <p><strong>Personal Practice</strong>The development of a three-dimensional understanding of the many facets of yoga, as well as the effort to integrate its concepts into personal behaviors and relationships.</p>
+      <p><strong>Seeing Others</strong>Witnessing, holding space, identifying energetics and aesthetics, and honing the stewardship of an educator.</p>
+      <p><strong>Communication</strong>How we talk about the things we know and love, connecting with other people through shared fascination and honesty, without being didactic or a caricature.</p>
+    </div>
+  </div>
+
+  <div class="offwhite-block">
+    <p class="tt-left"><strong>The call to practice is said to be the greatest gift one can receive.</strong>
+    The impulse to try yoga has been a turning point in the lives of so many people, for centuries. To happen upon the practice can feel like a homecoming, and this training provides a detailed blueprint of the structures that hold that home, upright and strong.</p>
+  </div>
+
+  <section class="price-block">
+    <div class="price">$3,600</div>
+    <p class="plan">Or $3,850</p>
+    <p class="plan-detail">w/ <a href="https://clients.mindbodyonline.com/classic/ws?studioid=5739873&stype=40&prodid=120" target="_blank" rel="noopener">payment plan</a><br>(<a href="https://clients.mindbodyonline.com/classic/ws?studioid=5739873&stype=40&prodid=120" target="_blank" rel="noopener">$642 per month, for six months</a>)</p>
+    <div class="cta-row" style="margin-bottom:0;">
+      <a class="cta cta-solid waitlist-trigger" href="#">Join the Waitlist</a>
+      <a class="cta cta-solid question-trigger" href="#">Ask a Question</a>
+    </div>
+    <p style="text-align:center; font-size:0.85rem; margin-top:1rem;">This year's training sold out, <br>join the waitlist to receive news about next year's.</p>
+  </section>
+
+  <section class="faq">
+    <h3>common questions</h3>
+
+    <details class="faq-item">
+      <summary>Is it okay if I miss a weekend?</summary>
+      <p>Yes. We record all lectures and discussions, so you can listen back if you miss anything, and it's easy to get notes from classmates as well. One of the reasons we use the extended format is that everyone has a life to navigate, and this training makes it especially easy to go deep while remaining flexible. Makeup work depends on what you miss, but the work is generally light and geared to help you understand the material covered.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Does the training come with any free classes?</summary>
+      <p>All teacher training sessions and classes are included in tuition, and all enrolled students get a free 10-pack of classes to use as they wish.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>How are the weekends structured?</summary>
+      <p>Each day is different, with a deliberate mix of physical practice, seated lectures, interactive discussions, and all manners restorative and meditative practice. Sessions range from 1-3 hours, with 30-minute breaks between.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>What is the capacity?</summary>
+      <p>We cap the training at 36 people, which makes for a spirited but intimate experience.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Is the training Yoga Alliance certified?</summary>
+      <p>Yes. All graduates qualify for a 200RYT designation.</p>
+    </details>
+  </section>
+
+  <section class="testimonials-section">
+    <div class="testimonials-inner">
+      <h3>testimonials</h3>
+      <div class="testimonials-grid">
+        <div class="testimonial-quote">
+          <p>This program is absolutely life changing.</p>
+          <p>You don't realize the impact that the monthly doses of philosophy, self-reflection and mind-body exploration have until they start to shape life decisions large and small in ways you could never have expected.</p>
+          <p>This program is the biggest gift you can give to yourself and to those around you.</p>
+          <p>I cannot recommend enough!</p>
+        </div>
+        <div class="testimonial-quote">
+          <p>From the first meeting I felt supported, encouraged, and alit with the enthusiasm for this practice.</p>
+          <p>There was no pressure to be a certain type of yogi. The differences between us were celebrated.</p>
+          <p>Arriving at the studio each month for training was like opening a gift. I didn't know what was coming but I knew I would want to keep it.</p>
+        </div>
+        <div class="testimonial-quote">
+          <p>The 200-hour teacher training at the Castro Room is a truly transformative experience.</p>
+          <p>It has changed everything about my practice—physically, spiritually, and emotionally.</p>
+          <p>It's for everyone at every level, not just those who want to learn how to do handstands.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Fragment slot="modals">
+    <WaitlistModal />
+    <QuestionModal />
+  </Fragment>
+
+  <Fragment slot="scripts">
+    <TTScrollEffects />
+  </Fragment>
+</BaseLayout>

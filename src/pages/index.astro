@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/global.css';
+import Hero from '../components/sections/Hero.astro';
+import Ethos from '../components/sections/Ethos.astro';
+import Schedule from '../components/sections/Schedule.astro';
+import TeacherTrainingTeaser from '../components/sections/TeacherTrainingTeaser.astro';
+import Events from '../components/sections/Events.astro';
+import About from '../components/sections/About.astro';
+import Purchase from '../components/sections/Purchase.astro';
+import HomeScrollEffects from '../components/HomeScrollEffects.astro';
+---
+
+<BaseLayout
+  title="the castro room | san francisco yoga"
+  description="Vinyasa yoga classes in San Francisco's Castro neighborhood. Expert teachers, 200-hour yoga teacher training, workshops, and community events at The Castro Room."
+  path="/"
+>
+  <Hero />
+  <Ethos />
+  <Schedule />
+  <TeacherTrainingTeaser />
+  <Events />
+  <About />
+  <Purchase />
+
+  <Fragment slot="scripts">
+    <HomeScrollEffects />
+  </Fragment>
+</BaseLayout>

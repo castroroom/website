@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/global.css';
+import Purchase from '../components/sections/Purchase.astro';
+import StandaloneReveal from '../components/StandaloneReveal.astro';
+---
+
+<BaseLayout
+  title="purchase | the castro room"
+  description="Purchase a membership or class pass at The Castro Room, a vinyasa yoga studio in San Francisco's Castro neighborhood."
+  path="/purchase"
+  standalone
+>
+  <Purchase />
+
+  <Fragment slot="scripts">
+    <StandaloneReveal />
+  </Fragment>
+</BaseLayout>
