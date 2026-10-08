@@ -535,3 +535,11 @@
     margin-bottom: 1.5rem;
     transition-delay: 0.15s;
   }
+
+  /* Extra side breathing room around the Sweatpals embeds on phones */
+  @media (max-width: 768px) {
+    #schedule, #events {
+      padding-left: 2.25rem;
+      padding-right: 2.25rem;
+    }
+  }
