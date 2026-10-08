@@ -543,3 +543,10 @@
       padding-right: 2.25rem;
     }
   }
+
+  /* Events embed: tile view on desktop, list view on phones */
+  .events-embed--mobile { display: none; }
+  @media (max-width: 768px) {
+    .events-embed--desktop { display: none; }
+    .events-embed--mobile { display: block; }
+  }
