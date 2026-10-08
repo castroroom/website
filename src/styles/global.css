@@ -509,13 +509,29 @@
   /* ---- Standalone section pages (/about, /schedule, /events, /purchase) ----
      On the home page these sections sit beneath other sections. As the first
      element on their own page they sit directly under the fixed nav, so they
-     need top padding to clear it (9rem, same as /contact). */
+     need top padding to clear it. The heading lands ~9rem from the top,
+     same as /contact. */
   main.standalone > #schedule,
   main.standalone > #events,
-  main.standalone > #purchase,
-  main.standalone > #about {
+  main.standalone > #purchase {
     padding-top: 9rem;
   }
-  main.standalone > #about .about-side-layout {
-    padding-top: 1.25rem;
+  /* /about has no heading above its layout (the h1 lives in the text column),
+     and .about-side-layout already adds 3rem of its own top padding. */
+  main.standalone > #about {
+    padding-top: 6rem;
+  }
+  /* On /about the h1 replaces the "about" h2 in the text column, so it must
+     look exactly like the "history" and "info" headings. */
+  .about-block h1 {
+    width: 100%;
+    max-width: 684px;
+  }
+  .info-block h1 {
+    color: #5e2500;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 400;
+    letter-spacing: normal;
+    margin-bottom: 1.5rem;
+    transition-delay: 0.15s;
   }
