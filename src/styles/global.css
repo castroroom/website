@@ -569,7 +569,3 @@
   }
   .section-link:hover,
   .section-link:focus-visible { text-decoration: underline; }
-  .section-link--light:hover,
-  .section-link--light:focus-visible { color: #EAD5AA; }
-  .section-link--cream:hover,
-  .section-link--cream:focus-visible { color: #FAF9F2; }
