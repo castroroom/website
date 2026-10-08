@@ -4,12 +4,14 @@ import WaitlistModal from '../components/WaitlistModal.astro';
 import QuestionModal from '../components/QuestionModal.astro';
 import TTScrollEffects from '../components/TTScrollEffects.astro';
 import '../styles/teacher-training.css';
+import { images, imagePath, ttGallery1, ttGallery2 } from '../data/images';
 ---
 
 <BaseLayout
   title="200-hour teacher training | the castro room"
   description="200-hour yoga teacher training in San Francisco. A distinguished, extended-format program for vinyasa yoga practitioners and aspiring teachers at The Castro Room."
   path="/teacher-training"
+  ogImageKey="circle"
   activeNav="teacher-training"
 >
   <div class="tt-hero">
@@ -44,20 +46,14 @@ import '../styles/teacher-training.css';
 
   <section class="gallery-wrap">
     <div class="photo-grid">
-      <img src="/images/S1_00800-Edit.jpg" alt="Vinyasa yoga class in progress at The Castro Room, San Francisco">
-      <img src="/images/S1_00705-Edit.jpg" alt="Students gathering outside The Castro Room yoga studio in San Francisco's Castro neighborhood">
-      <img src="/images/0M9A8976-Edit.jpg" alt="Yoga teacher training session, group seated lecture at The Castro Room">
-      <img src="/images/S1_00761-Edit.jpg" alt="Sunlit yoga mat at The Castro Room studio">
-      <img src="/images/S1_00654-Edit.jpg" alt="Notebook and belongings on the studio floor during teacher training at The Castro Room">
-      <img src="/images/S1_00729-Edit.jpg" alt="Yoga teacher training student journaling at The Castro Room">
+      {ttGallery1.map((key) => (
+        <img src={imagePath(key)} alt={images[key].alt} width={images[key].width} height={images[key].height} loading="lazy" decoding="async" />
+      ))}
     </div>
     <div class="photo-grid">
-      <img src="/images/S1_00753-Edit.jpg" alt="Student reading during a break at The Castro Room yoga teacher training">
-      <img src="/images/S1_00577-Edit.jpg" alt="Yoga teacher training group discussion at The Castro Room, San Francisco">
-      <img src="/images/S1_00797-Edit.jpg" alt="Teacher training students clapping and celebrating at The Castro Room">
-      <img src="/images/0M9A8919-Edit-2.jpg" alt="Teacher training session at The Castro Room yoga studio, San Francisco">
-      <img src="/images/0M9A2757-Edit.jpg" alt="Vinyasa yoga class, group pose at The Castro Room San Francisco">
-      <img src="/images/NH9A3487-Edit.jpg" alt="Yoga students stretching in class at The Castro Room">
+      {ttGallery2.map((key) => (
+        <img src={imagePath(key)} alt={images[key].alt} width={images[key].width} height={images[key].height} loading="lazy" decoding="async" />
+      ))}
     </div>
   </section>
 

@@ -6,14 +6,14 @@ const { active } = Astro.props;
 ---
 
 <nav>
-  <a href="/#home"><img class="nav-logo" src="/images/logo_dark.png" alt="The Castro Room"></a>
+  <a href="/"><img class="nav-logo" src="/images/logo_dark.png" alt="The Castro Room"></a>
   <div class="nav-links" id="nav-links">
-    <a href="/#home">home</a>
-    <a href="/#schedule">schedule</a>
+    <a href="/">home</a>
+    <a href="/schedule">schedule</a>
     <a href="/teacher-training" class={active === 'teacher-training' ? 'active' : ''}>teacher training</a>
-    <a href="/#events">events</a>
-    <a href="/#about">about</a>
-    <a href="/#purchase">purchase</a>
+    <a href="/events">events</a>
+    <a href="/about">about</a>
+    <a href="/purchase">purchase</a>
   </div>
   <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
     <span></span><span></span><span></span>
