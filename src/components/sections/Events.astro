@@ -9,7 +9,7 @@ const pageUrl = "https://sweatpals.com/static/embed/community/events/script.js?c
 <section id="events">
   <h1>{linked ? <a class="section-link section-link--light" href="/events">Events</a> : "Events"}</h1>
   <!-- Desktop / tablet embed (tile view): 1120px on the /events page, 1140px in the home scroll section -->
-  <div class="events-embed events-embed--desktop" style={`width:100%; max-width:1120px; margin-top:1.25rem; text-align:left;`}>
+  <div class="events-embed events-embed--desktop" style={`width:100%; max-width:${standalone ? 1120 : 1140}px; margin-top:1.25rem; text-align:left;`}>
     <!-- Sweatpals widget begin -->
 
     <script is:inline type="text/css" data-sweatpals-embed-css>
