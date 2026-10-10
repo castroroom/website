@@ -570,15 +570,7 @@
   .section-link:hover,
   .section-link:focus-visible { text-decoration: underline; }
 
-  /* Ethos text box ~18% narrower on desktop (684px -> 560px); heading shares the same left edge */
-  @media (min-width: 769px) {
-    .ethos-block p,
-    .ethos-block h2 {
-      max-width: 560px;
-    }
-  }
-
   /* Even out the ragged right edge of the ethos paragraphs (no effect on browsers without support) */
   .ethos-block p {
-    text-wrap: balance;
+    text-wrap: pretty;
   }
