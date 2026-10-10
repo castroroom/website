@@ -577,3 +577,8 @@
       max-width: 560px;
     }
   }
+
+  /* Even out the ragged right edge of the ethos paragraphs (no effect on browsers without support) */
+  .ethos-block p {
+    text-wrap: balance;
+  }
