@@ -574,3 +574,8 @@
   .ethos-block p {
     text-wrap: pretty;
   }
+
+  /* A little extra room under the final ethos paragraph (16px -> 32px margin) */
+  .ethos-block p:last-child {
+    margin-bottom: 2rem;
+  }
