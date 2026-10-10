@@ -38,6 +38,7 @@
     grid-column: 1;
   }
   .nav-logo {
+    border-radius: 50%;
     height: 50px;
     width: auto;
     display: block;
